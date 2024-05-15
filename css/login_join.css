@@ -1,0 +1,130 @@
+/* /////////////////////// */
+/* //////// 공용 ///////// */
+/* /////////////////////// */
+.logjoin{
+    width: 20%;
+    min-width: 320px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.logjoin .logo{
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+.idpw{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: 0;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    display: block;
+}
+.pw_area{position: relative;font-size: 0;}
+.pw_img{
+    width: 20px;
+    height: 50px;
+    background-image: url("../img/hidden_pw.png");
+    background-repeat: no-repeat;
+    background-position: right 70%;
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.pw_chk{
+    background-image: url("../img/text_pw.png");
+}
+.btn_sub{
+    width: 100%;
+    padding: 15px;
+    margin: 40px 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #e6e6e6;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* /////////////////////// */
+/* //////// 로그인 /////// */
+/* /////////////////////// */
+.login_rem_area{
+    padding: 10px 0;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+#login_rem{
+    width: 18px;
+    height: 18px;
+    border: 1px solid #111;
+    border-radius: 100%;
+    -webkit-appearance: none;
+}
+.login_rem_chk{background-color: #111;}
+.login_rem_area>span{cursor: pointer;}
+.login_btn_etc{
+    display: flex;
+    justify-content: space-between;
+}
+.login_find>a, .login_join{
+    font-size: 14px;
+    color: #111;
+    cursor: pointer;
+}
+.login_find>a{display: inline-block;}
+.login_id{margin-right: 10px;}
+.login_join{font-weight: bold;}
+
+/* /////////////////////// */
+/* /////// 회원가입 ////// */
+/* /////////////////////// */
+.join_hint{
+    padding: 5px 0 0 10px;
+    font-size: 13px;
+    color: #999;
+    text-wrap: nowrap;
+    float: left;
+    display: none;
+}
+.phone_area{
+    width: 100%;
+    margin-top: 20px;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
+}
+.phone_area>span{
+    width: 18%;
+    text-align: center;
+    display: inline-block;
+}
+#phone{
+    width: 80%;
+    margin-top: 0;
+    border-bottom: 0;
+    display: inline-block;
+}
+#phone::-webkit-outer-spin-button,
+#phone::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* /////////////////////// */
+/* / 아이디/비밀번호 찾기 / */
+/* /////////////////////// */
+.find_title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.find.logo{ padding-bottom: 40px; }
