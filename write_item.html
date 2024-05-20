@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST" enctype="multipart/form-data" id="write">
+        <div class="w_btn">
+            <button type="submit" id="w_btn_edit" class="w_btn">수정</button>
+            <button type="submit" id="w_btn_save" class="w_btn">저장</button>
+            <div class="w_btn_close">X</div>
+        </div>
+        <div class="w_main">
+            <div class="w_file_box">
+                <input type="file" name="rFile" id="w_file_input" accept="image/*" style="display: none;">
+                <div class="w_file_upload">+</div>
+                <div class="w_file_item">
+                    <img src="" alt="굿즈 사진">
+                    <div class="w_file_close">X</div>
+                </div>
+            </div>
+            <ul class="w_input_box">
+                <li class="w_i_li">별명: <input type="text" name="itemName" id="itemName" class="w_input" autofocus></li>
+                <li class="w_i_li">구매처: <input type="text" name="itemWhere" id="itemWhere" class="w_input"></li>
+                <li class="w_i_li">구매가: <input type="text" name="itemPrice" id="itemPrice" class="w_input"></li>
+                <li class="w_i_li">구매일자: <input type="date" name="itemDate" id="itemDate" class="w_input" required max="9999-12-31">
+                <li class="w_i_li">사랑에 빠진 이유: 
+                    <textarea name="itemTxt" id="itemTxt"></textarea>
+                </li>
+                <li class="w_i_li">
+                    <div class="item_receipt">
+                        <div class="w_i_li">영수증</div>
+                        <div class="w_file_box">
+                            <input type="file" name="rFile" id="w_file_input" accept="image/*" style="display: none;">
+                            <div class="w_file_upload">+</div>
+                            <div class="w_file_item">
+                                <img src="" alt="굿즈 사진">
+                                <div class="w_file_close">X</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item_guarantee"></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</body>
+</html>
