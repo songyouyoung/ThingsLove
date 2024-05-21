@@ -13,12 +13,12 @@
             <div class="w_btn_close">X</div>
         </div>
         <div class="w_main">
-            <div class="w_file_box">
-                <input type="file" name="rFile" id="w_file_input" accept="image/*" style="display: none;">
-                <div class="w_file_upload">+</div>
-                <div class="w_file_item">
+            <div class="w_file_box w_m_file_box">
+                <input type="file" name="w_m_file_input" id="w_m_file_input" accept="image/*" style="display: none;">
+                <div class="w_file_upload w_m_file_upload">+</div>
+                <div class="w_file_item w_m_file_item">
                     <img src="" alt="굿즈 사진">
-                    <div class="w_file_close">X</div>
+                    <div class="w_file_close w_m_file_close">X</div>
                 </div>
             </div>
             <ul class="w_input_box">
@@ -30,18 +30,28 @@
                     <textarea name="itemTxt" id="itemTxt"></textarea>
                 </li>
                 <li class="w_i_li">
-                    <div class="item_receipt">
+                    <div class="w_i_box item_receipt">
                         <div class="w_i_li">영수증</div>
-                        <div class="w_file_box">
-                            <input type="file" name="rFile" id="w_file_input" accept="image/*" style="display: none;">
-                            <div class="w_file_upload">+</div>
-                            <div class="w_file_item">
+                        <div class="w_file_box w_i_r_file_box">
+                            <input type="file" name="w_i_r_file_input" id="w_i_r_file_input" accept="image/*" style="display: none;">
+                            <div class="w_file_upload w_i_r_file_upload">+</div>
+                            <div class="w_file_item w_i_r_file_item">
                                 <img src="" alt="굿즈 사진">
-                                <div class="w_file_close">X</div>
+                                <div class="w_file_close w_i_r_file_close">X</div>
                             </div>
                         </div>
                     </div>
-                    <div class="item_guarantee"></div>
+                    <div class="w_i_box item_guarantee">
+                        <div class="w_i_li">품질보증서</div>
+                        <div class="w_file_box w_i_file_box">
+                            <input type="file" name="w_i_g_file_input" id="w_i_g_file_input" accept="image/*" style="display: none;">
+                            <div class="w_file_upload w_i_g_file_upload">+</div>
+                            <div class="w_file_item w_i_g_file_item">
+                                <img src="" alt="굿즈 사진">
+                                <div class="w_file_close w_i_g_file_close">X</div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
