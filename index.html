@@ -1,107 +1,118 @@
-
+<!-- <%@ page import="java.util.Date" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session = "false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>내가 사랑하는 것들</title>
+
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="">
 </head>
 <body>
-    <div class="m_header">
-        <div class="m_h_lev">
-            <img src="" alt="등급">
-            <span>등급명</span>
-        </div>
-        <div class="m_h_fix">
-            <div class="m_h_btn">&lt;&lt;</div>
-            <ul class="m_h_li">
-                <li>카테고리</li>
-                <li data-order="all">전체</li>
-                <li data-order="">카테명_1</li>
-                <li data-order="">카테명_2</li>
-            </ul>
-        </div>
-    </div>
-    <div class="main">
-        <div class="m_title">
-            <div class="m_t_left">
-                <div class="m_t_l_txt">카테고리명(<span>개수</span>)</div>
-                <div class="won_btn">￦</div>
+    <!-- <jsp:include page="header.jsp"/> -->
+    <main>
+        <div class="m_header">
+            <div class="m_h_lev">
+                <img src="" alt="등급">
+                <span>등급명</span>
             </div>
-            <ul class="sort_list">
-                <li data-order="itemRegDate" data-sort="ASC">최신순</li>
-                <li data-order="itemRegDate" data-sort="DESC">오래된순</li>
-                <li data-order="itemPrices" data-sort="DESC">높은가격순</li>
-                <li data-order="itemPrices" data-sort="ASC">낮은가격순</li>
+            <div class="m_h_fix">
+                <div class="m_h_btn">&lt;&lt;</div>
+                <ul class="m_h_li">
+                    <li>카테고리</li>
+                    <li data-order="all">전체</li>
+                    <li data-order="">카테명_1</li>
+                    <li data-order="">카테명_2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="m_title">
+                <div class="m_t_left">
+                    <div class="m_t_l_txt">카테고리명(<span>개수</span>)</div>
+                    <div class="won_btn">￦</div>
+                </div>
+                <ul class="sort_list">
+                    <li data-order="itemRegDate" data-sort="ASC">최신순</li>
+                    <li data-order="itemRegDate" data-sort="DESC">오래된순</li>
+                    <li data-order="itemPrices" data-sort="DESC">높은가격순</li>
+                    <li data-order="itemPrices" data-sort="ASC">낮은가격순</li>
+                </ul>
+            </div>
+            <ul class="m_li">
+                <li>
+                    <div class="m_li_img"></div>
+                    <div class="m_li_title">
+                        <span class="m_li_t_title">이름</span>
+                        <span class="m_li_t_price">￦</span>
+                    </div>
+                    <div class="m_li_regDate">♥ + <span>n</span></div>
+                </li>
+                <li>
+                    <div class="m_li_img"></div>
+                    <div class="m_li_title">
+                        <span class="m_li_t_title">이름</span>
+                        <span class="m_li_t_price">￦</span>
+                    </div>
+                    <div class="m_li_regDate">♥ + <span>n</span></div>
+                </li>
+                <li>
+                    <div class="m_li_img"></div>
+                    <div class="m_li_title">
+                        <span class="m_li_t_title">이름</span>
+                        <span class="m_li_t_price">￦</span>
+                    </div>
+                    <div class="m_li_regDate">♥ + <span>n</span></div>
+                </li>
+                <li>
+                    <div class="m_li_img"></div>
+                    <div class="m_li_title">
+                        <span class="m_li_t_title">이름</span>
+                        <span class="m_li_t_price">￦</span>
+                    </div>
+                    <div class="m_li_regDate">♥ + <span>n</span></div>
+                </li>
+                <li>
+                    <div class="m_li_img"></div>
+                    <div class="m_li_title">
+                        <span class="m_li_t_title">이름</span>
+                        <span class="m_li_t_price">￦</span>
+                    </div>
+                    <div class="m_li_regDate">♥ + <span>n</span></div>
+                </li>
+                <li>
+                    <div class="m_li_img"></div>
+                    <div class="m_li_title">
+                        <span class="m_li_t_title">이름</span>
+                        <span class="m_li_t_price">￦</span>
+                    </div>
+                    <div class="m_li_regDate">♥ + <span>n</span></div>
+                </li>
+                <li>
+                    <div class="m_li_img"></div>
+                    <div class="m_li_title">
+                        <span class="m_li_t_title">이름</span>
+                        <span class="m_li_t_price">￦</span>
+                    </div>
+                    <div class="m_li_regDate">♥ + <span>n</span></div>
+                </li>
+                <li>
+                    <div class="m_li_img"></div>
+                    <div class="m_li_title">
+                        <span class="m_li_t_title">이름</span>
+                        <span class="m_li_t_price">￦</span>
+                    </div>
+                    <div class="m_li_regDate">♥ + <span>n</span></div>
+                </li>
             </ul>
         </div>
-        <ul class="m_li">
-            <li>
-                <div class="m_li_img"></div>
-                <div class="m_li_title">
-                    <span class="m_li_t_title">이름</span>
-                    <span class="m_li_t_price">￦</span>
-                </div>
-                <div class="m_li_regDate">♥ + <span>n</span></div>
-            </li>
-            <li>
-                <div class="m_li_img"></div>
-                <div class="m_li_title">
-                    <span class="m_li_t_title">이름</span>
-                    <span class="m_li_t_price">￦</span>
-                </div>
-                <div class="m_li_regDate">♥ + <span>n</span></div>
-            </li>
-            <li>
-                <div class="m_li_img"></div>
-                <div class="m_li_title">
-                    <span class="m_li_t_title">이름</span>
-                    <span class="m_li_t_price">￦</span>
-                </div>
-                <div class="m_li_regDate">♥ + <span>n</span></div>
-            </li>
-            <li>
-                <div class="m_li_img"></div>
-                <div class="m_li_title">
-                    <span class="m_li_t_title">이름</span>
-                    <span class="m_li_t_price">￦</span>
-                </div>
-                <div class="m_li_regDate">♥ + <span>n</span></div>
-            </li>
-            <li>
-                <div class="m_li_img"></div>
-                <div class="m_li_title">
-                    <span class="m_li_t_title">이름</span>
-                    <span class="m_li_t_price">￦</span>
-                </div>
-                <div class="m_li_regDate">♥ + <span>n</span></div>
-            </li>
-            <li>
-                <div class="m_li_img"></div>
-                <div class="m_li_title">
-                    <span class="m_li_t_title">이름</span>
-                    <span class="m_li_t_price">￦</span>
-                </div>
-                <div class="m_li_regDate">♥ + <span>n</span></div>
-            </li>
-            <li>
-                <div class="m_li_img"></div>
-                <div class="m_li_title">
-                    <span class="m_li_t_title">이름</span>
-                    <span class="m_li_t_price">￦</span>
-                </div>
-                <div class="m_li_regDate">♥ + <span>n</span></div>
-            </li>
-            <li>
-                <div class="m_li_img"></div>
-                <div class="m_li_title">
-                    <span class="m_li_t_title">이름</span>
-                    <span class="m_li_t_price">￦</span>
-                </div>
-                <div class="m_li_regDate">♥ + <span>n</span></div>
-            </li>
-        </ul>
-    </div>
-    <div class="m_footer">+</div>
+        <div class="m_footer">+</div>
+    </main>
+    <!-- <jsp:include page="footer.jsp"/> -->
 </body>
 </html>
