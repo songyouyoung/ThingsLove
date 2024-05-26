@@ -1,21 +1,17 @@
+header, footer{
+    padding: 10px 30px 0 30px;
+}
+
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 10px 30px 0 30px;
 }
 
 /* 헤더 로고 */
-.logo{
+.m_logo, .f_logo{
     width: 50px;
     height: 48px;
-    background: url('../img/logo.png') no-repeat center / 100%;
-    text-indent: -9999px;
-}
-.logo a{
-    width: 100%;
-    height: 100%;
 }
 
 /* 헤더 우측 / 로그인(로그아웃), 회원가입(마이페이지) */
