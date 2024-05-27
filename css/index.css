@@ -1,0 +1,70 @@
+main{}
+.m_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.m_h_lev{
+    /* background: ; */
+}
+.m_h_fix{
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    /* transform: translateX(calc(100% - 40px)); */
+	transition-duration: 1s;
+}
+.m_h_btn{
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    background-color: pink;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    line-height: 2.2;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.m_h_li{
+	height: 100vh;
+	border: 1px solid;
+    padding: 20px;
+}
+.m_h_li > li{
+	position: relative;
+    padding: 5px 0 5px 5px;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+}
+.m_h_li > li:first-child{
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+    cursor: auto;
+}
+.m_h_li_box{
+	position: absolute;
+	top: 0;
+	left: 0;
+    right: 0;
+    bottom: 0;
+	
+	background: rgba(255, 192, 203, 0.4);
+	transform: translateX(-100%);
+	transition-duration: 1s;
+}
+.m_h_li > li:hover > .m_h_li_box{
+	transform: translateX(0);
+}
+.m_h_li_btn{
+    padding: 0 5px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+}
