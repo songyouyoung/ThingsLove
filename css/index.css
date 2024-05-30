@@ -25,11 +25,15 @@ main{padding: 50px 0;}
     background-position: -152px -52px; */
 }
 .m_h_fix{
+    background-color: white;
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 99999999;
     display: flex;
     /* transform: translateX(calc(100% - 40px)); */
+    /* main width값 조절필요 */
+    transition-property: transform;
 	transition-duration: 1s;
 }
 .m_h_btn{
@@ -92,7 +96,11 @@ main{padding: 50px 0;}
 /* ///////////////////////////////// */
 /* 메인_ */
 /* ///////////////////////////////// */
-.main{ padding: 50px 10% 0; }
+.main{
+    padding: 50px 10% 0;
+    width: calc(100% - 130px); /* 나중에 지울 예정 */
+    box-sizing: border-box; /* 나중에 지울 예정 */
+}
 .m_title{
     display: flex;
     justify-content: space-between;
