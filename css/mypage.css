@@ -1,0 +1,25 @@
+.mypage{position: relative;}
+.my_header{
+    width: 30px;
+    height: 30px;
+    background: url("../img/setting.png") center / 100%;
+    position: absolute;
+    right: 10%;
+}
+.setting{
+    margin-top: 5px;
+    white-space : nowrap;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+.setting > li{
+    padding: 5px 10px;
+    border-bottom: 1px solid;
+}
+.setting > li:hover{
+    background-color: rgba(255, 223, 228, 0.356);
+}

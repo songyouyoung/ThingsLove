@@ -1,5 +1,4 @@
-main{padding: 50px 0;}
-
+.m_header{padding-top: 50px;}
 /* ///////////////////////////////// */
 /* 메인 헤더 _ 등급명 */
 /* ///////////////////////////////// */
@@ -97,7 +96,6 @@ main{padding: 50px 0;}
 .main{
     width: calc(100% - 130px); /* 나중에 지울 예정 */
     box-sizing: border-box; /* 나중에 지울 예정 */
-    padding: 50px 10% 0;
 }
 .m_title{
     display: flex;
