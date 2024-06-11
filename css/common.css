@@ -23,3 +23,6 @@ ul{
     cursor: pointer;
     user-select: none;
 }
+
+/* 안보이게 함 */
+.none{display: none;}
