@@ -8,8 +8,8 @@
 
 }
 #write{
-    width: 40vw;
-    height: 60vw;
+    width: 50vh;
+    height: 80vh;
     max-height: 100vh;
     padding: 10px 20px;
     background-color: white;
@@ -108,3 +108,16 @@
     gap: 15px;
     align-items: center;
 }
+
+#itemPrice::-webkit-outer-spin-button,
+#itemPrice::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.w_i_li{position: relative;}
+.itemPrice_txt{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+#itemPrice{ padding-left: 30px; }

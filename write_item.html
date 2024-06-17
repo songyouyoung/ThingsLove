@@ -31,10 +31,13 @@
                 </div>
             </div>
             <ul class="w_input_box">
-                <li class="w_i_li"><input type="text" name="itemName" id="itemName" class="w_input" placeholder="별명" autofocus></li>
+                <li class="w_i_li"><input type="text" name="itemName" id="itemName" class="w_input" placeholder="별명" autofocus required></li>
                 <li class="w_i_li"><input type="text" name="itemWhere" id="itemWhere" class="w_input" placeholder="구매처"></li>
-                <li class="w_i_li"><input type="text" name="itemPrice" id="itemPrice" class="w_input" placeholder="구매가"></li>
-                <li class="w_i_li w_i_flex"><span class="w_i_txt">구매일자: </span><input type="date" name="itemDate" id="itemDate" class="w_input" required max="9999-12-31">
+                <li class="w_i_li">
+                    <div class="itemPrice_txt">￦</div>
+                    <input type="number" name="itemPrice" id="itemPrice" class="w_input" placeholder="구매가" min="0">
+                </li>
+                <li class="w_i_li w_i_flex"><span class="w_i_txt">구매일자: </span><input type="date" name="itemDate" id="itemDate" class="w_input" max="9999-12-31">
                 <li class="w_i_li"><span class="w_i_txt">사랑에 빠진 이유: </span>
                     <textarea name="itemTxt" id="itemTxt"></textarea>
                 </li>
