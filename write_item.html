@@ -12,6 +12,8 @@
     
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/write_item.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
 <div class="write_item">
@@ -23,7 +25,7 @@
         </div>
         <div class="w_main">
             <div class="w_file_box cursor w_m_file_box">
-                <input type="file" name="w_m_file_input" id="w_m_file_input" accept="image/*" style="display: none;">
+                <input type="file" name="w_m_file_input" class="w_file_input" accept="image/*" style="display: none;">
                 <div class="w_file_upload w_m_file_upload">+</div>
                 <div class="w_file_item w_m_file_item ">
                     <div class="w_file_close w_m_file_close">X</div>
@@ -45,7 +47,7 @@
                     <div class="item_receipt">
                         <span class="w_i_txt">영수증</span>
                         <div class="w_file_box cursor w_i_r_file_box">
-                            <input type="file" name="w_i_r_file_input" id="w_i_r_file_input" accept="image/*" style="display: none;">
+                            <input type="file" name="w_i_r_file_input" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_r_file_upload">+</div>
                             <div class="w_file_item w_i_r_file_item none">
                                 <div class="w_file_close w_i_r_file_close">X</div>
@@ -56,7 +58,7 @@
                     <div class="item_guarantee">
                         <span class="w_i_txt">품질보증서</span>
                         <div class="w_file_box cursor w_i_file_box">
-                            <input type="file" name="w_i_g_file_input" id="w_i_g_file_input" accept="image/*" style="display: none;">
+                            <input type="file" name="w_i_g_file_input" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_g_file_upload">+</div>
                             <div class="w_file_item w_i_g_file_item none">
                                 <div class="w_file_close w_i_g_file_close">X</div>
@@ -69,5 +71,7 @@
         </div>
     </form>
 </div>
+<!-- <script src="<c:url value='/js/login_join.js'/>"></script> -->
+<script src="/js/write_item.js"></script>
 </body>
 </html>
