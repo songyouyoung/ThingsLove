@@ -158,9 +158,10 @@
     border: 1px solid;
     border-radius: 50%;
 }
+.check{opacity: 100%;}
 #m_check_all{
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 2vw;
+    height: 2vw;
 }
 .m_move_box{
     padding: 3px 5px;

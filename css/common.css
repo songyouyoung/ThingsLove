@@ -63,8 +63,8 @@ ul{
     gap: 20px;
 }
 .item_ul >li{
-    width: calc((100% - 40px) / 3);
-    padding-bottom: calc(((100% - 40px) / 3) + 10%);
+    width: calc((100% - 60px) / 4);
+    padding-bottom: calc(((100% - 60px) / 4) + 10%);
     background-color: palegoldenrod;
     position: relative;
 }
