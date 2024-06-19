@@ -52,24 +52,26 @@
     border: 1px solid;
     border-radius: 5px;
     border-color: #e6e6e6;
+    background: no-repeat center / 100%;
+    /* background-image: url("../img/logo_bg.jpg"); */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
 }
 .w_file_upload{ font-size: 25px; }
-.w_file_item > img{
+/* .w_file_item > img{
     width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 .w_file_close{
     position: absolute;
     top: 0;
     right: 0;
-    margin: 5px;
+    padding: 5px 10px;
     z-index: 9;
 }
 
