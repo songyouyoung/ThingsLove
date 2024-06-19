@@ -62,4 +62,27 @@ $(document).ready(function(){
         imagePreview.css({ backgroundImage: "url('')" });
         uploadInput.val('');
     });
+
+// /////////////////////////////////////////////
+// 구매가 숫자 서식
+// /////////////////////////////////////////////
+    $(document).on('input', '#itemPrice', function() {
+        let cursorPosition = this.selectionStart; // 현재 커서 위치 저장
+        let inputVal = $(this).val();
+    
+        inputVal = inputVal.replace(/,/g, ''); // 기존 쉼표 제거
+    
+        // 입력 값이 숫자가 아니면 빈 문자열로 설정
+        if (isNaN(inputVal)) {
+            $(this).val('');
+            return;
+        }
+    
+        // 정규식을 사용하여 세 자리마다 쉼표 추가
+        let formattedVal = inputVal.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        $(this).val(formattedVal);
+    
+        // 커서 위치 조정
+        this.setSelectionRange(cursorPosition+1, cursorPosition+1);
+    });
 });
