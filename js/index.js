@@ -1,4 +1,7 @@
 $(document).ready(function(){
+// /////////////////////////////////////////////
+// check
+// /////////////////////////////////////////////
     // todo:: 상품 개수 가져와서 checks 초기화하기
     let checks = new Array(8).fill(false);
     $(document).on('click', '.m_check_img', function(){
@@ -13,5 +16,12 @@ $(document).ready(function(){
                 }
             });
         }
+    });
+// /////////////////////////////////////////////
+// fixed menu
+// /////////////////////////////////////////////
+    $(document).on('click', '.m_h_btn', function(){
+        document.getElementsByClassName("m_h_fix")[0].classList.toggle("m_h_fix_move"); 
+        $(this).html($(this).html() == "&lt;&lt;" ? "&gt;&gt;" : "&lt;&lt;");
     });
 });

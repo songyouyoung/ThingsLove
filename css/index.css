@@ -3,28 +3,29 @@
 /* ///////////////////////////////// */
 /* 메인 헤더 _ 메뉴 */
 /* ///////////////////////////////// */
-    .m_h_fix{
-        background-color: white;
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 99999999;
-        display: flex;
-        /* transform: translateX(calc(100% - 40px)); */
-        /* main width값 조절필요 */
-        transition-property: transform;
-        transition-duration: 1s;
-    }
-    .m_h_btn{
-        width: 40px;
-        height: 40px;
-        margin-top: 20px;
-        background-color: pink;
-        border-radius: 10px 0 0 10px;
-        text-align: center;
-        line-height: 2.2;
-        font-weight: bold;
-    }
+.m_h_fix{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999999;
+    display: flex;
+    
+    /* main width값 조절필요 */
+    transition-property: transform;
+    transition-duration: 1s;
+}
+.m_h_fix_move{ transform: translateX(calc(100% - 40px)); }
+.m_h_btn{
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    background-color: pink;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    line-height: 2.2;
+    font-weight: bold;
+}
 .m_h_li{
 	height: 100vh;
 	border: 1px solid;
