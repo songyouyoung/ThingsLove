@@ -12,10 +12,9 @@ $(document).ready(function(){
         checks[index] = bol_check
         if(index == 0) { // 전체 체크
             $(".main").find('.m_check_img').each(function(index) {
-                if (index > 0) { 
-                    $(this).toggleClass("check"); 
+                if (index > 0) {
+                    bol_check ? $(this).addClass("check") : $(this).removeClass("check");
                     checks[index] = bol_check;
-                    console.log(bol_check)
                 }
             });
         }

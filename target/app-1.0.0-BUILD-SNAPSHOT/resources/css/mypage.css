@@ -1,0 +1,60 @@
+.mypage{position: relative;}
+
+/* ///////////////////////////////// */
+/* 설정 */
+/* ///////////////////////////////// */
+.my_header{
+    width: 90px;
+    height: 35px;
+    background: url("../img/setting.png") no-repeat right / 30px 30px;
+    position: absolute;
+    right: 10%;
+}
+.my_header:hover>.setting,
+.setting:hover{display: block;}
+.setting{
+    padding-top: 5px;
+    white-space : nowrap;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border-bottom: 1px solid;
+    }
+    .setting > li{
+        padding: 5px 10px;
+        border-top: 1px solid;
+        border-left: 1px solid;
+        border-right: 1px solid;
+}
+.setting > li:hover{
+    background-color: rgba(255, 223, 228, 0.356);
+}
+
+/* ///////////////////////////////// */
+/* 정보 */
+/* ///////////////////////////////// */
+.my_info{
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.my_level{font-size: 16px;}
+.my_level_img{width: 35px; height: 35px;}
+.my_img{
+    width: 250px;
+    height: 250px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background: url("../img/logo_bg.jpg") no-repeat center / 100%;
+}
+.icon_heart{
+    color: #f61861;
+}
+.my_info_date{font-size: 14px;}
+.my_n_title{
+    padding: 50px 0 10px;
+    border-bottom: 1px solid;
+    font-size: 18px;
+    font-weight: bold;
+}

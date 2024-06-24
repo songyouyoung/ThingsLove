@@ -1,0 +1,125 @@
+/* 배경 설정 */
+.write_item{
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#write{
+    width: 50vh;
+    height: 80vh;
+    max-height: 100vh;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+/* 상단 버튼 */
+.w_btn_box{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 5px;
+}
+.w_btn{
+    background-color: white;
+    border: 1px solid;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+.w_btn:hover{background-color: rgba(255, 223, 228, 0.356);}
+.w_btn_close{
+    padding: 3px 4px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+/* 바디부분 */
+.w_main{
+    width: 100%;
+    height: calc(100% - 38px);
+    overflow: auto;
+}
+
+/* 사진 첨부 공통부분 */
+.w_file_box{
+    width: 100px;
+    height: 120px;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #e6e6e6;
+    background: no-repeat center / 100%;
+    /* background-image: url("../img/logo_bg.jpg"); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.w_file_upload{ font-size: 25px; }
+/* .w_file_item > img{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+.w_file_close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    z-index: 9;
+}
+
+/* 대표 사진 */
+.w_m_file_box{ margin: 0 auto; }
+
+/* input 박스 */
+.w_input_box, .w_i_li{padding-top: 10px;}
+.w_i_txt{ 
+    text-wrap: nowrap;
+    font-size: 18px; 
+    font-weight: bold;
+}
+.w_input{
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    display: block;
+}
+#itemTxt{
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    outline: none;
+}
+.w_i_flex{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+#itemPrice::-webkit-outer-spin-button,
+#itemPrice::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.w_i_li{position: relative;}
+.itemPrice_txt{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+#itemPrice{ padding-left: 30px; }

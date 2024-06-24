@@ -1,0 +1,77 @@
+<!-- <%@ page import="java.util.Date" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session = "false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내가 사랑하는 것들</title>
+
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/write_item.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="write_item">
+    <form action="" method="POST" enctype="multipart/form-data" id="write">
+        <div class="w_btn_box">
+            <button type="submit" id="w_btn_edit" class="w_btn cursor">수정</button>
+            <button type="submit" id="w_btn_save" class="w_btn cursor">저장</button>
+            <div class="w_btn_close cursor">X</div>
+        </div>
+        <div class="w_main">
+            <div class="w_file_box cursor w_m_file_box">
+                <input type="file" name="w_m_file_input" class="w_file_input" accept="image/*" style="display: none;">
+                <div class="w_file_upload w_m_file_upload">+</div>
+                <div class="w_file_close w_m_file_close none">X</div>
+                <!-- <div class="w_file_item w_m_file_item "> -->
+                    <!-- <img src="" alt=""> -->
+                <!-- </div> -->
+            </div>
+            <ul class="w_input_box">
+                <li class="w_i_li"><input type="text" name="itemName" id="itemName" class="w_input" placeholder="별명" autofocus required></li>
+                <li class="w_i_li"><input type="text" name="itemWhere" id="itemWhere" class="w_input" placeholder="구매처"></li>
+                <li class="w_i_li">
+                    <div class="itemPrice_txt">￦</div>
+                    <input type="text" name="itemPrice" id="itemPrice" class="w_input" placeholder="구매가" min="0">
+                </li>
+                <li class="w_i_li w_i_flex"><span class="w_i_txt">구매일자: </span><input type="date" name="itemDate" id="itemDate" class="w_input" max="9999-12-31">
+                <li class="w_i_li"><span class="w_i_txt">사랑에 빠진 이유: </span>
+                    <textarea name="itemTxt" id="itemTxt"></textarea>
+                </li>
+                <li class="w_i_li w_i_flex">
+                    <div class="item_receipt">
+                        <span class="w_i_txt">영수증</span>
+                        <div class="w_file_box cursor w_i_r_file_box">
+                            <input type="file" name="w_i_r_file_input" class="w_file_input" accept="image/*" style="display: none;">
+                            <div class="w_file_upload w_i_r_file_upload">+</div>
+                            <div class="w_file_close w_i_r_file_close none">X</div>
+                            <!-- <div class="w_file_item w_i_r_file_item none"> -->
+                                <!-- <img src="" alt="굿즈 사진"> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="item_guarantee">
+                        <span class="w_i_txt">품질보증서</span>
+                        <div class="w_file_box cursor w_i_file_box">
+                            <input type="file" name="w_i_g_file_input" class="w_file_input" accept="image/*" style="display: none;">
+                            <div class="w_file_upload w_i_g_file_upload">+</div>
+                            <div class="w_file_close w_i_g_file_close none">X</div>
+                            <!-- <div class="w_file_item w_i_g_file_item none"> -->
+                                <!-- <img src="" alt="굿즈 사진"> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+<!-- <script src="<c:url value='/js/login_join.js'/>"></script> -->
+<script src="/js/write_item.js"></script>
+</body>
+</html>
