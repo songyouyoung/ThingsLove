@@ -24,4 +24,11 @@ $(document).ready(function(){
         document.getElementsByClassName("m_h_fix")[0].classList.toggle("m_h_fix_move"); 
         $(this).html($(this).html() == "&lt;&lt;" ? "&gt;&gt;" : "&lt;&lt;");
     });
+
+// /////////////////////////////////////////////
+// 상품 추가
+// /////////////////////////////////////////////
+    $(document).on('click', '.fixed_btn', function(){
+        
+    });
 });
