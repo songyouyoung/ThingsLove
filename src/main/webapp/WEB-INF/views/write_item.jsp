@@ -1,17 +1,11 @@
-<!-- <%@ page import="java.util.Date" %>
+<%@ page import="java.util.Date" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session = "false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내가 사랑하는 것들</title>
-
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-    
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/write_item.css">
+    <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/write_item.css'/>">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
@@ -28,9 +22,6 @@
                 <input type="file" name="w_m_file_input" class="w_file_input" accept="image/*" style="display: none;">
                 <div class="w_file_upload w_m_file_upload">+</div>
                 <div class="w_file_close w_m_file_close none">X</div>
-                <!-- <div class="w_file_item w_m_file_item "> -->
-                    <!-- <img src="" alt=""> -->
-                <!-- </div> -->
             </div>
             <ul class="w_input_box">
                 <li class="w_i_li"><input type="text" name="itemName" id="itemName" class="w_input" placeholder="별명" autofocus required></li>
@@ -50,9 +41,6 @@
                             <input type="file" name="w_i_r_file_input" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_r_file_upload">+</div>
                             <div class="w_file_close w_i_r_file_close none">X</div>
-                            <!-- <div class="w_file_item w_i_r_file_item none"> -->
-                                <!-- <img src="" alt="굿즈 사진"> -->
-                            <!-- </div> -->
                         </div>
                     </div>
                     <div class="item_guarantee">
@@ -61,9 +49,6 @@
                             <input type="file" name="w_i_g_file_input" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_g_file_upload">+</div>
                             <div class="w_file_close w_i_g_file_close none">X</div>
-                            <!-- <div class="w_file_item w_i_g_file_item none"> -->
-                                <!-- <img src="" alt="굿즈 사진"> -->
-                            <!-- </div> -->
                         </div>
                     </div>
                 </li>
@@ -71,7 +56,6 @@
         </div>
     </form>
 </div>
-<!-- <script src="<c:url value='/js/login_join.js'/>"></script> -->
-<script src="/js/write_item.js"></script>
+<script src="<c:url value='/js/write_item.js'/>"></script>
 </body>
 </html>
