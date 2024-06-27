@@ -165,6 +165,7 @@
 <jsp:include page="footer.jsp"/>
 <script>
     let userNo = "${userNo}";
+    let cateNo = "${cateNo}";
 </script>
 <script src="<c:url value='/js/index.js'/>"></script>
 </body>

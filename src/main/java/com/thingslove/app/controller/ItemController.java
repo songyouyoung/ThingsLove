@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/item")
 public class ItemController {
-    @GetMapping("/add")
+    // 상품 화면 띄우기
+    @GetMapping("/item")
     public String showItemAdd(){ return "write_item"; }
 }

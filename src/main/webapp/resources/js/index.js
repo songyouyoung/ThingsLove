@@ -61,10 +61,11 @@ $(document).ready(function(){
         //     });
         // }else {
             $.ajax({
-                url: "/" + C_PATH + "/item/add?cateNo=",
+                url: "/" + C_PATH + "/item/item",
                 type: "GET",
                 success: function (data) {
                     $("main").append(data);
+                    $("#w_btn_edit").remove();
                 }, error: function () {
                     Swal.fire({
                         icon: "warning",
@@ -72,6 +73,37 @@ $(document).ready(function(){
                     });
                 }
             });
+        // }
+    });
+
+// /////////////////////////////////////////////
+// 상품 상세 보기
+// /////////////////////////////////////////////
+    $(document).on('click', '.item_ul > li', function(){
+        let itemNo = $(this).data("itemNo");
+        // if (userNo == ""){
+        //     Swal.fire({
+        //         icon: "warning",
+        //         title: "로그인이 필요한 서비스입니다. "
+        //     }).then(()=>{
+        //         location.href = "/" + C_PATH + "/login/login?prevPage="+location.pathname;
+        //     });
+        // }else {
+        $.ajax({
+            url: "/" + C_PATH + "/item/item",
+            type: "GET",
+            success: function (data) {
+                /////////////////////////////////
+                // 추후 상품 리스트로 받아서 여기서 강제로 데이터 입력해서 출력할 것.
+                /////////////////////////////////
+                $("main").append(data);
+            }, error: function () {
+                Swal.fire({
+                    icon: "warning",
+                    title: "상품 조회 오류.<br> 관리자에게 문의해주세요."
+                });
+            }
+        });
         // }
     });
 });
