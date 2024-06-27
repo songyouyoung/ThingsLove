@@ -1,6 +1,10 @@
 header, footer{
     padding: 10px 10% 0;
 }
+footer{
+    padding-bottom: 10px;
+    background-color: #eeeeee;
+}
 
 header{
     display: flex;

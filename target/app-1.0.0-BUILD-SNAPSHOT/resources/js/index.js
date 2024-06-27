@@ -28,6 +28,27 @@ $(document).ready(function(){
     });
 
 // /////////////////////////////////////////////
+// 스크롤 - + 버튼 footer 영역 침범 불가
+// /////////////////////////////////////////////
+    let fix_btn = $('.fixed_btn');
+    /*let fixBtn_pos = fix_btn.offset().top + fix_btn.innerHeight();*/
+    let foot_pos = $('footer').offset().top + 40;
+    $(window).scroll(function(){
+        console.log("window", $(window).height() + $(window).scrollTop());
+        console.log("foot_pos", foot_pos);
+        if(($(window).height() + $(window).scrollTop()) >= foot_pos) {
+            fix_btn.css({
+                position: "absolute",
+                bottom: "10px"
+            });
+        }else{
+            fix_btn.css({
+                position: "fixed",
+                bottom: "50px"
+            });
+        }
+    });
+// /////////////////////////////////////////////
 // 상품 추가
 // /////////////////////////////////////////////
     $(document).on('click', '.fixed_btn', function(){
