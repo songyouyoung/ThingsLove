@@ -1,6 +1,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session = "false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="userNo" value="${ pageContext.request.getSession(false).getAttribute('userNo')}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="<c:url value='/css/index.css'/>">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -161,6 +163,9 @@
     <div class="fixed_btn cursor">+</div>
 </main>
 <jsp:include page="footer.jsp"/>
+<script>
+    let userNo = "${userNo}";
+</script>
 <script src="<c:url value='/js/index.js'/>"></script>
 </body>
 </html>

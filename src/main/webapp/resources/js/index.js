@@ -1,3 +1,5 @@
+const C_PATH = (location.pathname).split("/")[1];
+
 $(document).ready(function(){
 // /////////////////////////////////////////////
 // check
@@ -50,6 +52,26 @@ $(document).ready(function(){
 // 상품 추가
 // /////////////////////////////////////////////
     $(document).on('click', '.fixed_btn', function(){
-        
+        // if (userNo == ""){
+        //     Swal.fire({
+        //         icon: "warning",
+        //         title: "로그인이 필요한 서비스입니다. "
+        //     }).then(()=>{
+        //         location.href = "/" + C_PATH + "/login/login?prevPage="+location.pathname;
+        //     });
+        // }else {
+            $.ajax({
+                url: "/" + C_PATH + "/item/add?cateNo=",
+                type: "GET",
+                success: function (data) {
+                    $("main").append(data);
+                }, error: function () {
+                    Swal.fire({
+                        icon: "warning",
+                        title: "상품 추가 오류.<br> 관리자에게 문의해주세요."
+                    });
+                }
+            });
+        // }
     });
 });

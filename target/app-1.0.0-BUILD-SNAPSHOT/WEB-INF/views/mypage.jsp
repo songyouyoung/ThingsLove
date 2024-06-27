@@ -1,6 +1,6 @@
-<!-- <%@ page import="java.util.Date" %>
+<%@ page import="java.util.Date" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session = "false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>내가 사랑하는 것들</title>
 
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-    
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/mypage.css">
+    <link rel="shortcut icon" href="<c:url value='/img/logo.png'/>" type="image/x-icon">
+    <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/h_f.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/mypage.css'/>">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
 <div class="mypage p_50">
     <div class="my_header cursor">
         <ul class="setting none">
@@ -82,5 +86,7 @@
         </ul>
     </div>
 </div>
+<jsp:include page="footer.jsp"/>
+<%--<script src="<c:url value='/js/mypage.js'/>"></script>--%>
 </body>
 </html>

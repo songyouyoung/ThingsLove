@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<c:url value='/css/mypage.css'/>">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
