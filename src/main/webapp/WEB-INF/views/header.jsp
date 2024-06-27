@@ -1,18 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session = "false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="sessionId" value="${ pageContext.request.getSession(false).getAttribute('userNo')!=null? pageContext.request.getSession(false).getAttribute('userNo'):null}" />
+
+<c:set var="logIO_link" value="${ sessionId==null?'/login/login':'/login/logout'}" />
+<c:set var="logIO_text" value="${ sessionId==null?'로그인':'로그아웃'}" />
+<c:set var="signIO_link" value="${ sessionId==null?'/login/join':'/myPage'}" />
+<c:set var="signIO_text" value="${ sessionId==null?'회원가입':'마이페이지'}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/common.css"> <!--index페이지랑 연결시켜 놓은 후 지울 것-->
-    <link rel="stylesheet" href="css/h_f.css"><!--index페이지랑 연결 후 지워도 되는 지 확인 필요-->
+    <%--<link rel="stylesheet" href="css/common.css"> <!--index페이지랑 연결시켜 놓은 후 지울 것-->--%>
+    <%--<link rel="stylesheet" href="css/h_f.css"><!--index페이지랑 연결 후 지워도 되는 지 확인 필요-->--%>
 </head>
 <body>
     <header>
         <div class="logo m_logo">
-            <a href="/">내가 사랑하는 것들</a>
+            <a href="<c:url value='/'/>">내가 사랑하는 것들</a>
         </div>
         <div class="h_right">
             <div class="login">
-                <!-- <a href="<c:url value='${logIO_link}'/>"> -->
-                <a href="login.jsp">
+                <%--<a href="<c:url value='${logIO_link}'/>">--%>
+                <a href="<c:url value='/login.jsp'/>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
                         <g data-name="*ic_header_logout">
                             <path data-name="Rectangle 2119" style="opacity:.5;fill:none" d="M0 0h28v28H0z"/>
@@ -23,11 +32,11 @@
                         </g>
                     </svg>
                 </a>
-                <!-- <div class="h_icon_desc">${logIO_text}</div> -->
+                <%--<div class="h_icon_desc">${logIO_text}</div>--%>
                 <div class="h_icon_desc">로그인</div>
             </div>
             <div class="join">
-                <!-- <a href="<c:url value='${signIO_link}'/>"> -->
+                <%--<a href="<c:url value='${signIO_link}'/>">--%>
                 <a href="/join.jsp">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
                         <g data-name="*ic_header_recent">
@@ -42,7 +51,7 @@
                         </g>
                     </svg>
                 </a>
-                <!-- <div class="h_icon_desc">${signIO_text}</div> -->
+                <%--<div class="h_icon_desc">${signIO_text}</div>--%>
                 <div class="h_icon_desc">회원가입</div>
             </div>
         </div>

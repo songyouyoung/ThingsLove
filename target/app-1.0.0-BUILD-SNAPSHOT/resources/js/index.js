@@ -15,7 +15,6 @@ $(document).ready(function(){
                 if (index > 0) {
                     bol_check ? $(this).addClass("check") : $(this).removeClass("check");
                     checks[index] = bol_check;
-                    console.log(bol_check)
                 }
             });
         }

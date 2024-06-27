@@ -11,11 +11,12 @@
     <link rel="shortcut icon" href="<c:url value='/img/logo.png'/>" type="image/x-icon">
     <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/index.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/h_f.css'/>">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
-    <%--<jsp:include page="header.jsp"/>--%>
+    <jsp:include page="header.jsp"/>
     <main>
         <div class="m_header">
             <div class="my_level">
@@ -159,7 +160,7 @@
         </div>
         <div class="fixed_btn cursor">+</div>
     </main>
-    <%--<jsp:include page="footer.jsp"/>--%>
+    <jsp:include page="footer.jsp"/>
 <script src="<c:url value='/js/index.js'/>"></script>
 </body>
 </html>
