@@ -29,13 +29,13 @@
             <div class="m_h_btn cursor">&lt;&lt;</div>
             <ul class="m_h_li">
                 <li>카테고리 <div class="m_h_li_btn m_h_li_add_btn">+</div></li>
-                <li data-order="all">전체 <div class="m_h_li_btn m_h_li_del_btn">-</div>
+                <li data-cate="all">전체 <div class="m_h_li_btn m_h_li_del_btn">-</div>
                     <div class="m_h_li_box"></div>
                 </li>
-                <li data-order="">카테명_1 <div class="m_h_li_btn m_h_li_del_btn">-</div>
+                <li data-cate="">카테명_1 <div class="m_h_li_btn m_h_li_del_btn">-</div>
                     <div class="m_h_li_box"></div>
                 </li>
-                <li data-order="">카테명_2 <div class="m_h_li_btn m_h_li_del_btn">-</div>
+                <li data-cate="">카테명_2 <div class="m_h_li_btn m_h_li_del_btn">-</div>
                     <div class="m_h_li_box"></div>
                 </li>
             </ul>

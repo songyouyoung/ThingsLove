@@ -28,6 +28,12 @@ $(document).ready(function(){
         document.getElementsByClassName("m_h_fix")[0].classList.toggle("m_h_fix_move"); 
         $(this).html($(this).html() == "&lt;&lt;" ? "&gt;&gt;" : "&lt;&lt;");
     });
+// /////////////////////////////////////////////
+// menu - cate 선택
+// /////////////////////////////////////////////
+    $(document).on('click', '.m_h_li>li', function(){
+        location.replace('/'+C_PATH+'/cate?cateNo=' + $(this).data("cate"));
+    });
 
 // /////////////////////////////////////////////
 // 스크롤 - + 버튼 footer 영역 침범 불가
