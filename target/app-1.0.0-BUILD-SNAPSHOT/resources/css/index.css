@@ -72,7 +72,7 @@ main{position: relative}
     height: 20px;
     background: no-repeat center / 100%;
     cursor: pointer;
-    display: inline-block;
+    float: right;
 }
 .m_h_li_edit_btn{
     margin-left: 10px;

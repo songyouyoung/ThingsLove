@@ -72,13 +72,16 @@ main{position: relative}
     height: 20px;
     background: no-repeat center / 100%;
     cursor: pointer;
-    display: inline-block;
+    float: right;
 }
 .m_h_li_edit_btn{
     margin-left: 10px;
     background-image: url("../img/edit_icon.png");
 }
-.m_h_li_del_btn{ background-image: url("../img/del_icon.png"); }
+.m_h_li_del_btn{
+    margin-left: 5px;
+    background-image: url("../img/del_icon.png");
+}
 .m_h_li_add_input{
     width: calc(100% - 55px);
     padding: 3px;

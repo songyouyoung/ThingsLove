@@ -79,7 +79,7 @@ $(document).ready(function(){
         // todo:: java 처리 필요. cateNo 가져오기
         let cateNo;
         let m_h_li_html = `<li data-cate="${cateNo}" class="m_h_item"><span class="m_h_li_txt">${add_name}</span> (<span class="m_h_li_cnt">0</span>)
-                                <div class="m_h_li_btn m_h_li_edit_btn"></div> <div class="m_h_li_btn m_h_li_del_btn"></div>
+                                <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
                                     <div class="m_h_li_box"></div>
                                 </li>`;
         $('.m_h_li').append(m_h_li_html);

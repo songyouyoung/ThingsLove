@@ -32,10 +32,10 @@
                 <li data-cate="all" class="m_h_item">전체
                     <div class="m_h_li_box"></div>
                 </li>
-                <li data-cate="" class="m_h_item"><span class="m_h_li_txt">카테명_1</span> (<span class="m_h_li_cnt">개수</span>) <div class="m_h_li_btn m_h_li_edit_btn"></div> <div class="m_h_li_btn m_h_li_del_btn"></div>
+                <li data-cate="" class="m_h_item"><span class="m_h_li_txt">카테명_1</span> (<span class="m_h_li_cnt">개수</span>) <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
                     <div class="m_h_li_box"></div>
                 </li>
-                <li data-cate="" class="m_h_item"><span class="m_h_li_txt">카테명_2</span> (<span class="m_h_li_cnt">개수</span>) <div class="m_h_li_btn m_h_li_edit_btn"></div> <div class="m_h_li_btn m_h_li_del_btn"></div>
+                <li data-cate="" class="m_h_item"><span class="m_h_li_txt">카테명_2</span> (<span class="m_h_li_cnt">개수</span>) <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
                     <div class="m_h_li_box"></div>
                 </li>
             </ul>
