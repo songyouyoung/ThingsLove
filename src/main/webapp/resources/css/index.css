@@ -54,17 +54,31 @@ main{position: relative}
 	background: rgba(255, 192, 203, 0.4);
 	transform: translateX(-100%);
 	transition-duration: 1s;
+
+    pointer-events: none;
 }
 .m_h_li > li:hover > .m_h_li_box{
 	transform: translateX(0);
 }
-.m_h_li_btn{
+.m_h_li_add_btn{
     padding: 0 5px;
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
     float: right;
 }
+.m_h_li_btn{
+    width: 20px;
+    height: 20px;
+    background: no-repeat center / 100%;
+    cursor: pointer;
+    display: inline-block;
+}
+.m_h_li_edit_btn{
+    margin-left: 10px;
+    background-image: url("../img/edit_icon.png");
+}
+.m_h_li_del_btn{ background-image: url("../img/del_icon.png"); }
 .m_h_li_add_input{
     width: calc(100% - 55px);
     padding: 3px;
@@ -81,6 +95,13 @@ main{position: relative}
     outline: none;
     border: none;
     border-radius: 5px;
+}
+m_h_li_edit_input{
+    padding: 3px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid;
+    border-color: #ddd;
 }
 
 /* ///////////////////////////////// */

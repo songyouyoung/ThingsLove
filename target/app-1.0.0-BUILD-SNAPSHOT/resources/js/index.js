@@ -21,6 +21,24 @@ $(document).ready(function(){
             });
         }
     });
+
+// /////////////////////////////////////////////
+// fixed menu - 다른 곳 클릭
+// /////////////////////////////////////////////
+    $(document).on('click', function(event) {
+        //swal 제외
+        if (!$('.swal2-container').is(event.target) && $('.swal2-container').has(event.target).length === 0) {
+            // cate 추가 li 생성 후 다른 곳 클릭했을 시 삭제
+            if (!$('.m_h_li_add').is(event.target) && $('.m_h_li_add').has(event.target).length === 0) {
+                $(".m_h_li_add").remove();
+            }
+            // cate 수정 input 생성 후 다른 곳 클릭했을 시 삭제
+            if (!$('.m_h_li_edit_input').is(event.target) && $('.m_h_li_edit_input').has(event.target).length === 0) {
+                $(".m_h_li_edit_input").remove();
+                $(".m_h_li_txt").css({display : "inline"});
+            }
+        }
+    });
 // /////////////////////////////////////////////
 // fixed menu
 // /////////////////////////////////////////////
@@ -36,10 +54,12 @@ $(document).ready(function(){
 // menu - cate 추가
     $(document).on('click', '.m_h_li_add_btn', function(event){
         event.stopPropagation()
+        // add input이 이미 있는 경우 생성 안함.
+        if($(".m_h_li_add").length > 0){return;}
         let m_h_li_add_html = `<li class="m_h_li_add"><input type="text" class="m_h_li_add_input" autofocus><button class="m_h_li_add_sub">생성</button></li>`;
         $('.m_h_li li').eq(0).after(m_h_li_add_html);
     });
-// menu - cate 실제 추가
+// menu - cate 실제 추가 (카테고리 생성 버튼 클릭)
     $(document).on('click', '.m_h_li_add_sub', function (event){
         event.stopPropagation()
         cate_add();
@@ -53,13 +73,13 @@ $(document).ready(function(){
         /*cate_add_error("중복된 이름입니다.");
         return;*/
         if (add_name == ""){
-            console.log("빈값");
             cate_add_error("1자 이상 입력해주세요.");
             return;
         }
         // todo:: java 처리 필요. cateNo 가져오기
         let cateNo;
-        let m_h_li_html = `<li data-cate="${cateNo}" class="m_h_item">${add_name} (<span class="m_h_li_cnt">0</span>) <div class="m_h_li_btn m_h_li_del_btn">-</div>
+        let m_h_li_html = `<li data-cate="${cateNo}" class="m_h_item"><span class="m_h_li_txt">${add_name}</span> (<span class="m_h_li_cnt">0</span>)
+                                <div class="m_h_li_btn m_h_li_edit_btn"></div> <div class="m_h_li_btn m_h_li_del_btn"></div>
                                     <div class="m_h_li_box"></div>
                                 </li>`;
         $('.m_h_li').append(m_h_li_html);
@@ -73,17 +93,63 @@ $(document).ready(function(){
         $(".m_h_li_add_input").focus();
         return;
     }
-// menu - cate 추가 li 생성 후 다른 곳 클릭했을 시 삭제
-    $(document).on('click', function(event) {
-        let m_h_li_add = $('.m_h_li_add');
-        if (!m_h_li_add.is(event.target) && m_h_li_add.has(event.target).length === 0) {
-            $(".m_h_li_add").remove();
-        }
-    });
 // menu - cate 삭제
     $(document).on('click', '.m_h_li_del_btn', function(event){
         event.stopPropagation()
+        let cateCnt = $(this).parent().children(".m_h_li_cnt").text();
+        console.log("cateCnt", cateCnt);
+        if (cateCnt > 0){
+            Swal.fire({
+                icon: "warning",
+                title: "카테고리 삭제 실패",
+                text: "카테고리안에 상품이 있을 시 삭제 불가합니다. "
+            });
+        }else{
+            // todo:: 카테고리 삭제 ajax
+            Swal.fire({
+                icon: "success",
+                title: "카테고리 삭제 성공!"
+            }).then(()=>{ $(this).parent().remove() });
+        }
     });
+// menu - cate명 수정
+    $(document).on('click', '.m_h_li_edit_btn', function(event){
+        event.stopPropagation();
+        let this_li = $(this).parent();
+        let this_li_txt = this_li.children(".m_h_li_txt");
+        // 수정할 수 있게 input 생성
+        if(!this_li.children('.m_h_li_edit_input').length > 0){
+            // 다른 li의 text, input 초기화
+            $(".m_h_li_txt").css({display : "inline"});
+            $(".m_h_li_edit_input").remove();
+
+            let cateName = this_li_txt.text();
+            let cateEdit_html = `<input type="text" class="m_h_li_edit_input" value="${cateName}" autofocus>`;
+            console.log("cateName", cateName);
+            this_li_txt.css({display : "none"});
+            this_li.prepend(cateEdit_html);
+        }
+        // 실제 수정 실행
+        else{
+            // todo:: db 카테고리명 수정 ajax
+            cate_edit();
+        }
+    });
+    $(document).on('click', '.m_h_li_edit_input', function(event){ event.stopPropagation(); });
+    $(document).on('keyup', '.m_h_li_edit_input', function(event){
+        if(event.keyCode == 13){ cate_edit(); }
+    });
+    function cate_edit() {
+        console.log("this", $(this));
+        let this_li_txt = $(".m_h_li_edit_input").parent().children(".m_h_li_txt");
+        // todo:: 중복된 카테명 없는 지 체크
+
+        let cateEditName = $(".m_h_li_edit_input").val();
+        console.log("cateEditName", cateEditName);
+        this_li_txt.text(cateEditName);
+        $(".m_h_li_edit_input").remove();
+        this_li_txt.css({display : "inline"});
+    }
 
 // /////////////////////////////////////////////
 // 스크롤 - + 버튼 footer 영역 침범 불가
