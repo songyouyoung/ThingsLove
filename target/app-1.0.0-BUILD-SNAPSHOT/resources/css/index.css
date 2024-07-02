@@ -65,6 +65,23 @@ main{position: relative}
     cursor: pointer;
     float: right;
 }
+.m_h_li_add_input{
+    width: calc(100% - 55px);
+    padding: 3px;
+    margin-right: 5px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid;
+    border-color: #ddd;
+}
+.m_h_li_add_sub{
+    width: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
 
 /* ///////////////////////////////// */
 /* 메인_헤더 */

@@ -28,11 +28,61 @@ $(document).ready(function(){
         document.getElementsByClassName("m_h_fix")[0].classList.toggle("m_h_fix_move"); 
         $(this).html($(this).html() == "&lt;&lt;" ? "&gt;&gt;" : "&lt;&lt;");
     });
-// /////////////////////////////////////////////
 // menu - cate 선택
-// /////////////////////////////////////////////
-    $(document).on('click', '.m_h_li>li', function(){
-        console.log($(this).data("cate"));
+    $(document).on('click', '.m_h_item', function(event){
+        event.stopPropagation()
+        location.replace('/'+C_PATH+'/cate?cateNo=' + $(this).data("cate"));
+    });
+// menu - cate 추가
+    $(document).on('click', '.m_h_li_add_btn', function(event){
+        event.stopPropagation()
+        let m_h_li_add_html = `<li class="m_h_li_add"><input type="text" class="m_h_li_add_input" autofocus><button class="m_h_li_add_sub">생성</button></li>`;
+        $('.m_h_li li').eq(0).after(m_h_li_add_html);
+    });
+// menu - cate 실제 추가
+    $(document).on('click', '.m_h_li_add_sub', function (event){
+        event.stopPropagation()
+        cate_add();
+    });
+    $(document).on('keyup', '.m_h_li_add_input', function(event){
+        if(event.keyCode == 13){ cate_add(); }
+    });
+    function cate_add() {
+        let add_name = $('.m_h_li_add_input').val();
+        // todo:: 카테 이름 중복 체크 필요
+        /*cate_add_error("중복된 이름입니다.");
+        return;*/
+        if (add_name == ""){
+            console.log("빈값");
+            cate_add_error("1자 이상 입력해주세요.");
+            return;
+        }
+        // todo:: java 처리 필요. cateNo 가져오기
+        let cateNo;
+        let m_h_li_html = `<li data-cate="${cateNo}" class="m_h_item">${add_name} (<span class="m_h_li_cnt">0</span>) <div class="m_h_li_btn m_h_li_del_btn">-</div>
+                                    <div class="m_h_li_box"></div>
+                                </li>`;
+        $('.m_h_li').append(m_h_li_html);
+        $(".m_h_li_add").remove();
+    }
+    function cate_add_error(title) {
+        Swal.fire({
+            icon: "warning",
+            title: title
+        });
+        $(".m_h_li_add_input").focus();
+        return;
+    }
+// menu - cate 추가 li 생성 후 다른 곳 클릭했을 시 삭제
+    $(document).on('click', function(event) {
+        let m_h_li_add = $('.m_h_li_add');
+        if (!m_h_li_add.is(event.target) && m_h_li_add.has(event.target).length === 0) {
+            $(".m_h_li_add").remove();
+        }
+    });
+// menu - cate 삭제
+    $(document).on('click', '.m_h_li_del_btn', function(event){
+        event.stopPropagation()
     });
 
 // /////////////////////////////////////////////

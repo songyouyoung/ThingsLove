@@ -8,7 +8,7 @@
     align-items: center;
     position: fixed;
     top: 0;
-    z-index: 999999999;
+    z-index: 30;
 }
 #write{
     width: 50vh;
@@ -75,7 +75,7 @@
     top: 0;
     right: 0;
     padding: 5px 10px;
-    z-index: 9;
+    z-index: 5;
 }
 
 /* 대표 사진 */

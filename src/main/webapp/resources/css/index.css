@@ -8,7 +8,7 @@ main{position: relative}
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 99999999;
+    z-index: 25;
     display: flex;
     transition-property: transform;
     transition-duration: 1s;
@@ -65,6 +65,23 @@ main{position: relative}
     cursor: pointer;
     float: right;
 }
+.m_h_li_add_input{
+    width: calc(100% - 55px);
+    padding: 3px;
+    margin-right: 5px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid;
+    border-color: #ddd;
+}
+.m_h_li_add_sub{
+    width: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
 
 /* ///////////////////////////////// */
 /* 메인_헤더 */
@@ -105,7 +122,7 @@ main{position: relative}
     background-color: white;
     /* text-align: center; */
     /* line-height: 50px; */
-    z-index: 999;
+    z-index: 15;
     display: none;
 }
 .won_btn:hover::after{
@@ -131,7 +148,7 @@ main{position: relative}
     position: absolute;
     top: 100%;
     left: -1px;
-    z-index: 9999;
+    z-index: 20;
 }
 .sort_list > li:hover{
     background-color: rgba(255, 223, 228, 0.356);
@@ -171,7 +188,7 @@ main{position: relative}
     background-color: white;
     position: absolute;
     left: -1px;
-    z-index: 99;
+    z-index: 10;
 }
 .m_move_ul>li{padding: 5px 10px;}
 .m_move_ul> li:hover{
