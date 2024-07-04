@@ -25,7 +25,10 @@
             <div class="pw_img"></div>
         </div>
         <div class="login_rem_area">
-            <input type="checkbox" name="login_rem" id="login_rem" autocomplete='off' ${empty param.idTmp?(empty cookie.rememberId.value?"":"checked class='login_rem_chk'"):""}>
+            <input type="checkbox" name="login_rem" id="login_rem" autocomplete='off'
+                ${empty param.idTmp?
+                    (empty cookie.rememberId.value?"value='off'":"value='on' checked class='login_rem_chk'")
+                    :"value='off'"}>
             <span>아이디저장</span>
         </div>
         <input type="submit" value="로그인" class="btn_sub">

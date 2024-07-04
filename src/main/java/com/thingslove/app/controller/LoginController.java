@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/login")
@@ -38,7 +39,7 @@ public class LoginController {
     }
 // 실제 로그인
     @PostMapping("/login")
-    public String login(UserDto userDto, Boolean login_rem, String prevPage, Model model, HttpSession session, HttpServletResponse response) {
+    public String login(UserDto userDto, String login_rem, String prevPage, Model model, HttpSession session, HttpServletResponse response) {
         Integer userNo = userService.userLogin(userDto);
         if (userNo == null || userNo < 1) {
             model.addAttribute("welcome", "아이디 / 비밀번호를 다시 한 번 확인해주세요.");
@@ -47,8 +48,11 @@ public class LoginController {
         session.setAttribute("userNo", userNo);
 
         //아이디 기억하기
+        System.out.println("login_rem" + login_rem);
+        System.out.println("rememberId" + userDto.getUserId());
         Cookie cookie = new Cookie("rememberId", userDto.getUserId());
-        if (login_rem != null && login_rem) {
+//        if (login_rem != null && login_rem) {
+        if (login_rem != null && login_rem.equals("on")) {
             cookie.setMaxAge(60 * 60 * 24 * 30);
         }else {
             cookie.setMaxAge(0);

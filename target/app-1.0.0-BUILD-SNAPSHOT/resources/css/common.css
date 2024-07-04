@@ -12,7 +12,7 @@ ul{
 }
 /* 로고 이미지 */
 .logo{
-    background: url('../img/logo.png') no-repeat center / 100%;
+    background: url('../img/logo.png') no-repeat center / auto 100%;
     text-indent: -9999px;
 }
 .logo a{

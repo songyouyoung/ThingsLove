@@ -1,6 +1,7 @@
 const C_PATH = (location.pathname).split("/")[1];
 const C_PATH_MY = (location.pathname).split("/")[2] == "myPage";
 $(document).ready(function(){
+    console.log($("#login_rem").val());
 /////////////////////////////////
 ///////////// 공용 //////////////
 /////////////////////////////////
@@ -15,6 +16,10 @@ $(document).ready(function(){
 /////////////////////////////////
     $(document).on('click', '.login_rem_area>span, #login_rem', function(){
         $("#login_rem").toggleClass("login_rem_chk");
+        $("#login_rem").val(
+            !$(".login_rem_area").children('.login_rem_chk').length > 0 ? "off" : "on"
+        );
+        console.log($("#login_rem").val());
     });
 
 /////////////////////////////////

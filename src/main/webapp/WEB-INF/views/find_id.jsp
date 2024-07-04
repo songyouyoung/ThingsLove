@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xexymix</title>
-    <link rel="shortcut icon" href="https://www.xexymix.com/design/xexymix/image/common/xexymix.ico" type="image/x-icon">
+    <title>내가 사랑하는 것들</title>
+    <link rel="shortcut icon" href="<c:url value='/img/logo.png'/>" type="image/x-icon">
     <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/h_f.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/login_join.css'/>">
@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="wrap" class="logjoin">
-    <div class="find logo"><a href="<c:url value='/'/>">xexymix</a></div>
+    <div class="find logo"><a href="<c:url value='/'/>">내가 사랑하는 것들</a></div>
     <div class="find_box">
         <div class="find_title">아이디 찾기</div>
         <input type="text" name="userName" id="name" class="idpw" placeholder="이름" autofocus required>
