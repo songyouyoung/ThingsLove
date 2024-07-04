@@ -48,10 +48,7 @@ public class LoginController {
         session.setAttribute("userNo", userNo);
 
         //아이디 기억하기
-        System.out.println("login_rem" + login_rem);
-        System.out.println("rememberId" + userDto.getUserId());
         Cookie cookie = new Cookie("rememberId", userDto.getUserId());
-//        if (login_rem != null && login_rem) {
         if (login_rem != null && login_rem.equals("on")) {
             cookie.setMaxAge(60 * 60 * 24 * 30);
         }else {
@@ -59,12 +56,6 @@ public class LoginController {
         }
         cookie.setPath("/");
         response.addCookie(cookie);
-
-        // 장바구니 개수 (쿠키)
-        int cartCnt = 0;
-        Cookie cookie_cart = new Cookie("cartCnt", cartCnt+"");
-        cookie_cart.setPath("/");
-        response.addCookie(cookie_cart);
 
         if (prevPage.isEmpty()){ prevPage = "http://localhost:8080/app/"; }
         return "redirect:"+prevPage;
@@ -77,11 +68,6 @@ public class LoginController {
     public String showLogout(HttpSession session, HttpServletResponse response){
         // 세션 전체 삭제
         session.invalidate();
-        //장바구니 쿠키 삭제
-        Cookie cookie_cart = new Cookie("cartCnt", "");
-        cookie_cart.setPath("/");
-        cookie_cart.setMaxAge(0);
-        response.addCookie(cookie_cart);
         return "redirect:/";
     }
 

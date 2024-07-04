@@ -73,7 +73,6 @@ public class UserService {
         userDesc.put("userNo", userNo);
         userDesc.put("limit", 0);
         userDesc.put("limitMax", 5);
-        userDesc.put("limitMax", 3);
         return mypageDesc;
     }
     public Integer selectUserBuyCnt(Map<String, String> userBuy){
