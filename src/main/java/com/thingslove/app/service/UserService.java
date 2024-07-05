@@ -20,7 +20,7 @@ public class UserService {
 ///////////////////////////////////
 //////////// 로그인
 ///////////////////////////////////
-    public Integer userLogin(UserDto userDto){
+    public Map<String, Integer> userLogin(UserDto userDto){
         return userDao.selectLogin(userDto);
     }
 

@@ -1,6 +1,7 @@
 package com.thingslove.app.controller;
 
 import com.thingslove.app.domain.UserDto;
+import com.thingslove.app.service.CateService;
 import com.thingslove.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,12 +41,16 @@ public class LoginController {
 // 실제 로그인
     @PostMapping("/login")
     public String login(UserDto userDto, String login_rem, String prevPage, Model model, HttpSession session, HttpServletResponse response) {
-        Integer userNo = userService.userLogin(userDto);
-        if (userNo == null || userNo < 1) {
+        Map<String, Integer> user = userService.userLogin(userDto);
+        if (user.get("userNo") == null || user.get("userNo") < 1) {
             model.addAttribute("welcome", "아이디 / 비밀번호를 다시 한 번 확인해주세요.");
             return "login";
         }
-        session.setAttribute("userNo", userNo);
+        // 유저, 등급 세션 생성
+        session.setAttribute("userNo", user.get("userNo"));
+        session.setAttribute("userLv", user.get("userLv"));
+
+        System.out.println("user : " + user);
 
         //아이디 기억하기
         Cookie cookie = new Cookie("rememberId", userDto.getUserId());

@@ -17,7 +17,7 @@ public class UserDao {
 ///////////////////////////////////
 //////////// 로그인
 ///////////////////////////////////
-    public Integer selectLogin(UserDto userDto){
+    public Map<String, Integer> selectLogin(UserDto userDto){
         return session.selectOne(namespace + "selectLogin", userDto);
     }
 

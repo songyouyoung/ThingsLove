@@ -5,8 +5,8 @@
     <!--/////////////////////////////////////////////////////-->
     <!--////////////////////// 로그인 //////////////////////-->
     <!--/////////////////////////////////////////////////////-->
-    <select id="selectLogin" parameterType="userDto" resultType="int">
-        select userNo from user
+    <select id="selectLogin" parameterType="userDto" resultType="map">
+        select userNo, userLv from user
             where BINARY userId = #{userId} and BINARY userPw = #{userPw}
     </select>
 
