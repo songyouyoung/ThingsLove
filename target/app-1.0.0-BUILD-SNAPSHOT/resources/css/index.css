@@ -122,7 +122,7 @@ m_h_li_edit_input{
     font-size: 20px;
     font-weight: bold;
 }
-.m_t_l_txt > span{font-size: 20px;}
+#m_t_l_cnt{font-size: 20px;}
 .won_btn{
     width: 30px;
     height: 30px;

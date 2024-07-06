@@ -1,6 +1,7 @@
 package com.thingslove.app.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thingslove.app.domain.CateDto;
 import com.thingslove.app.service.CateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class IndexController {
@@ -19,17 +23,26 @@ public class IndexController {
     CateService cateService;
 
     @GetMapping("/")
-    public String showIndex(HttpSession session, Model model, HttpServletResponse response){
+    public String showIndex(HttpSession session, Model model, HttpServletResponse response, Integer cateNo) throws JsonProcessingException {
         Integer userNo = (Integer) session.getAttribute("userNo");
 
         // 로그인 세션 없을 시 login 페이지로 이동
         if(userNo == null){ return "login"; }
         else {
+            ObjectMapper mapper = new ObjectMapper();
             // 카테고리 리스트 전달
-            List<CateDto> cateList = cateService.selectCateList(userNo);
-            System.out.println(cateList);
+            List<CateDto> cateLi = cateService.selectCateList(userNo);
+            String cateList = mapper.writeValueAsString(cateLi);
             model.addAttribute("cateList", cateList);
             // 상품 리스트 전달
+            Map<String, Integer> selecItem = new HashMap<>();
+            selecItem.put("userNo", userNo);
+            selecItem.put("cateNo", cateNo);
+//            List<ItemDto> itemLi = itemService.selectItemList(selecItem);
+//            String itemList = mapper.writeValueAsString(itemLi);
+//            model.addAttribute("itemList", itemList);
+//            System.out.println(itemList);
+            System.out.println(cateList);
             return "index";
         }
     }

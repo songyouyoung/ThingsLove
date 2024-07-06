@@ -45,7 +45,7 @@
     <div class="main p_50">
         <div class="m_title">
             <div class="m_t_left">
-                <div class="m_t_l_txt">${param.cateNo}카테고리명 (<span>개수</span>) </div>
+                <div><span id="m_t_l_txt"></span> (<span id="m_t_l_cnt">개수</span>) </div>
                 <div class="won_btn cursor">￦</div>
             </div>
             <div class="m_t_right cursor">
@@ -63,11 +63,7 @@
             <div class="m_check_img cursor" id="m_check_all"></div>
             <div class="m_move_box cursor">
                 <span>이동&ensp;▼</span>
-                <ul class="m_move_ul none">
-                    <li>카테고리</li>
-                    <li>카테고리</li>
-                    <li>카테고리</li>
-                </ul>
+                <ul class="m_move_ul none"></ul>
             </div>
         </div>
         <ul class="item_ul">
@@ -167,7 +163,7 @@
 <script>
     let userNo = "${userNo}";
     let cateNo = "${param.cateNo}";
-    let cateList = "${cateList}";
+    let cateList = ${cateList};
 </script>
 <script src="<c:url value='/js/index.js'/>"></script>
 </body>

@@ -2,6 +2,24 @@ const C_PATH = (location.pathname).split("/")[1];
 
 $(document).ready(function(){
 // /////////////////////////////////////////////
+// index 초기화
+// /////////////////////////////////////////////
+    cateList.forEach((cate) => {
+        // 카테고리 리스트 출력 (카테고리 이동 셀렉트 박스)
+        let move_li = `<li data-cate="${cate.cateNo}">${cate.cateName}</li>`;
+        $(".m_move_ul").append(move_li);
+
+        // 카테고리 명 출력
+        if (cate.cateNo == cateNo){
+            $("#m_t_l_txt").text(cate.cateName);
+        }
+    });
+    // 카테고리 명 출력
+    if (cateNo == ""){
+        $("#m_t_l_txt").text("전체");
+    }
+
+// /////////////////////////////////////////////
 // check
 // /////////////////////////////////////////////
     // todo:: 상품 개수 가져와서 checks 초기화하기
@@ -20,6 +38,14 @@ $(document).ready(function(){
                 }
             });
         }
+    });
+
+// /////////////////////////////////////////////
+// 이동
+// /////////////////////////////////////////////
+    // 이동 클릭 시 카테고리 리스트 보여주기
+    $(document).on('click', '.m_move_box', function(){
+        $(".m_move_ul").toggleClass("none");
     });
 
 // /////////////////////////////////////////////
@@ -76,8 +102,7 @@ $(document).ready(function(){
             cate_add_error("1자 이상 입력해주세요.");
             return;
         }
-        // todo:: java 처리 필요. cateNo 가져오기
-        let cateNo;
+        // todo:: java 처리 필요
         let m_h_li_html = `<li data-cate="${cateNo}" class="m_h_item"><span class="m_h_li_txt">${add_name}</span> (<span class="m_h_li_cnt">0</span>)
                                 <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
                                     <div class="m_h_li_box"></div>
