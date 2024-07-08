@@ -5,5 +5,6 @@
     <typeAliases>
         <typeAlias alias="userDto" type="com.thingslove.app.domain.UserDto" />
         <typeAlias alias="cateDto" type="com.thingslove.app.domain.CateDto" />
+        <typeAlias alias="itemDto" type="com.thingslove.app.domain.ItemDto" />
     </typeAliases>
 </configuration>

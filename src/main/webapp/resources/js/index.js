@@ -20,35 +20,6 @@ $(document).ready(function(){
     }
 
 // /////////////////////////////////////////////
-// check
-// /////////////////////////////////////////////
-    // todo:: 상품 개수 가져와서 checks 초기화하기
-    let checks = new Array(8).fill(false);
-    $(document).on('click', '.m_check_img', function(){
-        let bol_check;
-        $(this).toggleClass("check");
-        let index = $(".main").find('.m_check_img').index(this)
-        bol_check = checks[index] ? false : true;
-        checks[index] = bol_check
-        if(index == 0) { // 전체 체크
-            $(".main").find('.m_check_img').each(function(index) {
-                if (index > 0) {
-                    bol_check ? $(this).addClass("check") : $(this).removeClass("check");
-                    checks[index] = bol_check;
-                }
-            });
-        }
-    });
-
-// /////////////////////////////////////////////
-// 이동
-// /////////////////////////////////////////////
-    // 이동 클릭 시 카테고리 리스트 보여주기
-    $(document).on('click', '.m_move_box', function(){
-        $(".m_move_ul").toggleClass("none");
-    });
-
-// /////////////////////////////////////////////
 // fixed menu - 다른 곳 클릭
 // /////////////////////////////////////////////
     $(document).on('click', function(event) {
@@ -69,7 +40,7 @@ $(document).ready(function(){
 // fixed menu
 // /////////////////////////////////////////////
     $(document).on('click', '.m_h_btn', function(){
-        document.getElementsByClassName("m_h_fix")[0].classList.toggle("m_h_fix_move"); 
+        document.getElementsByClassName("m_h_fix")[0].classList.toggle("m_h_fix_move");
         $(this).html($(this).html() == "&lt;&lt;" ? "&gt;&gt;" : "&lt;&lt;");
     });
 // menu - cate 선택
@@ -196,6 +167,35 @@ $(document).ready(function(){
     });
 
 // /////////////////////////////////////////////
+// check
+// /////////////////////////////////////////////
+    // todo:: 상품 개수 가져와서 checks 초기화하기
+    let checks = new Array(8).fill(false);
+    $(document).on('click', '.m_check_img', function(){
+        let bol_check;
+        $(this).toggleClass("check");
+        let index = $(".main").find('.m_check_img').index(this)
+        bol_check = checks[index] ? false : true;
+        checks[index] = bol_check
+        if(index == 0) { // 전체 체크
+            $(".main").find('.m_check_img').each(function(index) {
+                if (index > 0) {
+                    bol_check ? $(this).addClass("check") : $(this).removeClass("check");
+                    checks[index] = bol_check;
+                }
+            });
+        }
+    });
+
+// /////////////////////////////////////////////
+// 이동
+// /////////////////////////////////////////////
+    // 이동 클릭 시 카테고리 리스트 보여주기
+    $(document).on('click', '.m_move_box', function(){
+        $(".m_move_ul").toggleClass("none");
+    });
+
+// /////////////////////////////////////////////
 // 상품 추가
 // /////////////////////////////////////////////
     $(document).on('click', '.fixed_btn', function(){
@@ -224,6 +224,31 @@ $(document).ready(function(){
     });
 
 // /////////////////////////////////////////////
+// 상품 리스트 출력
+// /////////////////////////////////////////////
+    if (itemList == null){
+        $(".item_ul").html(`<li>등록한 상품이 없습니다. <br> 아래 + 버튼을 눌러 상품을 등록해보세요! </li>`);
+        console.log("없음");
+    }else{
+        console.log("있음");
+        $(".item_ul").html("");
+        let i = 0;
+        itemList.forEach((item)=>{
+            let li = `<li class="item_li" data-itemNo = "${item.itemNo}">
+                                <div class="m_check m_check_img"></div>
+<!--                                <div class="item_li_img"></div>-->
+                                <img class="item_li_img" src="/${C_PATH}/things/${item.Img}">
+                                <div class="item_li_regDate">♥ + <span>n</span></div>
+                                <div class="item_li_title">
+                                    <span class="item_li_t_title">${item.itemNickName}</span>
+                                    <span class="item_li_t_price">￦${item.itemPrice}</span>
+                                </div>
+                            </li>`;
+            $(".item_ul").append(li);
+        });
+    }
+
+    // /////////////////////////////////////////////
 // 상품 상세 보기
 // /////////////////////////////////////////////
     $(document).on('click', '.item_ul > li', function(){

@@ -3,7 +3,9 @@ package com.thingslove.app.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thingslove.app.domain.CateDto;
+import com.thingslove.app.domain.ItemDto;
 import com.thingslove.app.service.CateService;
+import com.thingslove.app.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,8 @@ import java.util.Map;
 public class IndexController {
     @Autowired
     CateService cateService;
+    @Autowired
+    ItemService itemService;
 
     @GetMapping("/")
     public String showIndex(HttpSession session, Model model, HttpServletResponse response, Integer cateNo) throws JsonProcessingException {
@@ -38,10 +42,10 @@ public class IndexController {
             Map<String, Integer> selecItem = new HashMap<>();
             selecItem.put("userNo", userNo);
             selecItem.put("cateNo", cateNo);
-//            List<ItemDto> itemLi = itemService.selectItemList(selecItem);
-//            String itemList = mapper.writeValueAsString(itemLi);
-//            model.addAttribute("itemList", itemList);
-//            System.out.println(itemList);
+            List<ItemDto> itemLi = itemService.selectItemList(selecItem);
+            String itemList = mapper.writeValueAsString(itemLi);
+            model.addAttribute("itemList", itemList);
+            System.out.println(itemList);
             System.out.println(cateList);
             return "index";
         }

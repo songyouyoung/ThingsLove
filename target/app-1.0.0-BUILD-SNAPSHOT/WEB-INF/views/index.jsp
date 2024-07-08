@@ -67,7 +67,7 @@
             </div>
         </div>
         <ul class="item_ul">
-            <li>
+            <%--<li>
                 <div class="item_li">
                     <div class="m_check m_check_img"></div>
                     <div class="item_li_img"></div>
@@ -154,7 +154,7 @@
                         <span class="item_li_t_price">￦</span>
                     </div>
                 </div>
-            </li>
+            </li>--%>
         </ul>
     </div>
     <div class="fixed_btn cursor">+</div>
@@ -164,6 +164,7 @@
     let userNo = "${userNo}";
     let cateNo = "${param.cateNo}";
     let cateList = ${cateList};
+    let itemList = ${itemList};
 </script>
 <script src="<c:url value='/js/index.js'/>"></script>
 </body>
