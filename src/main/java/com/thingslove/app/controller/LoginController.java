@@ -42,7 +42,7 @@ public class LoginController {
     @PostMapping("/login")
     public String login(UserDto userDto, String login_rem, String prevPage, Model model, HttpSession session, HttpServletResponse response) {
         Map<String, Integer> user = userService.userLogin(userDto);
-        if (user.get("userNo") == null || user.get("userNo") < 1) {
+        if (user == null || user.get("userNo") == null || user.get("userNo") < 1) {
             model.addAttribute("welcome", "아이디 / 비밀번호를 다시 한 번 확인해주세요.");
             return "login";
         }

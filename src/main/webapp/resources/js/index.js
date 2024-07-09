@@ -228,24 +228,34 @@ $(document).ready(function(){
 // /////////////////////////////////////////////
     if (itemList == null){
         $(".item_ul").html(`<li>등록한 상품이 없습니다. <br> 아래 + 버튼을 눌러 상품을 등록해보세요! </li>`);
-        console.log("없음");
     }else{
-        console.log("있음");
         $(".item_ul").html("");
         let i = 0;
         itemList.forEach((item)=>{
+            let today = new Date();
+            // today = createDate(today, "-");
+            console.log(Math.floor((today.getTime() - item.itemBuyDate) / (1000 * 3600 * 24)));
+            console.log(Math.floor((today.getTime() - item.itemRegDate) / (1000 * 3600 * 24)));
+            let  date = item.itemBuyDate == null ? Math.floor((today.getTime() - item.itemRegDate) / (1000 * 3600 * 24))
+                                                        : Math.floor((today.getTime() - item.itemBuyDate) / (1000 * 3600 * 24));
             let li = `<li class="item_li" data-itemNo = "${item.itemNo}">
                                 <div class="m_check m_check_img"></div>
-<!--                                <div class="item_li_img"></div>-->
-                                <img class="item_li_img" src="/${C_PATH}/things/${item.Img}">
-                                <div class="item_li_regDate">♥ + <span>n</span></div>
+                                <div class="item_li_img"><img src="/${C_PATH}/img/things/${item.itemImg}"></div>
+                                <div class="item_li_regDate">♥ + <span>${date}</span></div>
                                 <div class="item_li_title">
-                                    <span class="item_li_t_title">${item.itemNickName}</span>
-                                    <span class="item_li_t_price">￦${item.itemPrice}</span>
+                                    <span class="item_li_t_title">${item.itemNickName == null? (item.itemName == null? "" : item.itemName) : item.itemNickName}</span>
+                                    <span class="item_li_t_price">￦${item.itemPrice.toLocaleString("ko")}</span>
                                 </div>
                             </li>`;
             $(".item_ul").append(li);
         });
+    }
+    function createDate(dt, mark){
+        let year = dt.getFullYear();
+        let month = dt.getMonth()+1 < 10 ? "0" + (dt.getMonth()+1) : dt.getMonth()+1;
+        let date = dt.getDate() < 10 ? "0" + dt.getDate() : dt.getDate();
+
+        return year + mark + month + mark + date;
     }
 
     // /////////////////////////////////////////////
