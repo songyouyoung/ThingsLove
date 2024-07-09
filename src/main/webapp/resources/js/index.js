@@ -245,6 +245,7 @@ $(document).ready(function(){
         $(".item_ul").html("");
         let item_check = 0;
         let today = new Date();
+        console.log(today);
         // today = createDate(today, "-");
         itemList.forEach((item)=>{
             if (cateNo == "" || item.cateNo == cateNo) {

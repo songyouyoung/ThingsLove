@@ -1,4 +1,5 @@
 <%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session = "false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -31,7 +32,11 @@
                     <div class="itemPrice_txt">￦</div>
                     <input type="text" name="itemPrice" id="itemPrice" class="w_input" placeholder="구매가" min="0">
                 </li>
-                <li class="w_i_li w_i_flex"><span class="w_i_txt">구매일자: </span><input type="date" name="itemDate" id="itemDate" class="w_input" max="9999-12-31">
+                <%
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String today = sdf.format(new Date());
+                %>
+                <li class="w_i_li w_i_flex"><span class="w_i_txt">구매일자: </span><input type="date" name="itemDate" id="itemDate" class="w_input" max="<%= today %>">
                 <li class="w_i_li"><span class="w_i_txt">사랑에 빠진 이유: </span>
                     <textarea name="itemTxt" id="itemTxt"></textarea>
                 </li>
