@@ -4,6 +4,7 @@ $(document).ready(function(){
 // /////////////////////////////////////////////
 // index 초기화
 // /////////////////////////////////////////////
+    let cate_check = 0;
     cateList.forEach((cate) => {
         // 카테고리 리스트 출력 (카테고리 이동 셀렉트 박스)
         let move_li = `<li data-cate="${cate.cateNo}">${cate.cateName}</li>`;
@@ -12,11 +13,23 @@ $(document).ready(function(){
         // 카테고리 명 출력
         if (cate.cateNo == cateNo){
             $("#m_t_l_txt").text(cate.cateName);
+            cate_check++;
         }
     });
     // 카테고리 명 출력
     if (cateNo == ""){
         $("#m_t_l_txt").text("전체");
+    }else if (cate_check == 0){
+        Swal.fire({
+            icon: "warning",
+            title: "해당 카테고리는 존재하지 않습니다."
+        }).then(()=>{
+            if (window.history.length > 1 && document.referrer !== ""){
+                window.history.back();
+            }else{
+                location.replace('/'+C_PATH);
+            }
+        });
     }
 
 // /////////////////////////////////////////////
@@ -46,7 +59,7 @@ $(document).ready(function(){
 // menu - cate 선택
     $(document).on('click', '.m_h_item', function(event){
         event.stopPropagation()
-        location.replace('/'+C_PATH+'/cate?cateNo=' + $(this).data("cate"));
+        location.replace('/'+C_PATH+'?cateNo=' + $(this).data("cate"));
     });
 // menu - cate 추가
     $(document).on('click', '.m_h_li_add_btn', function(event){
@@ -227,28 +240,32 @@ $(document).ready(function(){
 // 상품 리스트 출력
 // /////////////////////////////////////////////
     if (itemList == null){
-        $(".item_ul").html(`<li>등록한 상품이 없습니다. <br> 아래 + 버튼을 눌러 상품을 등록해보세요! </li>`);
+        $(".item_ul").html(`<li id="item_none">등록한 상품이 없습니다. <br> 아래 + 버튼을 눌러 상품을 등록해보세요! </li>`);
     }else{
         $(".item_ul").html("");
-        let i = 0;
+        let item_check = 0;
+        let today = new Date();
+        // today = createDate(today, "-");
         itemList.forEach((item)=>{
-            let today = new Date();
-            // today = createDate(today, "-");
-            console.log(Math.floor((today.getTime() - item.itemBuyDate) / (1000 * 3600 * 24)));
-            console.log(Math.floor((today.getTime() - item.itemRegDate) / (1000 * 3600 * 24)));
-            let  date = item.itemBuyDate == null ? Math.floor((today.getTime() - item.itemRegDate) / (1000 * 3600 * 24))
-                                                        : Math.floor((today.getTime() - item.itemBuyDate) / (1000 * 3600 * 24));
-            let li = `<li class="item_li" data-itemNo = "${item.itemNo}">
+            if (cateNo == "" || item.cateNo == cateNo) {
+                let date = item.itemBuyDate == null ? Math.floor((today.getTime() - item.itemRegDate) / (1000 * 3600 * 24))
+                    : Math.floor((today.getTime() - item.itemBuyDate) / (1000 * 3600 * 24));
+                let li = `<li class="item_li" data-itemNo = "${item.itemNo}">
                                 <div class="m_check m_check_img"></div>
                                 <div class="item_li_img"><img src="/${C_PATH}/img/things/${item.itemImg}"></div>
                                 <div class="item_li_regDate">♥ + <span>${date}</span></div>
                                 <div class="item_li_title">
-                                    <span class="item_li_t_title">${item.itemNickName == null? (item.itemName == null? "" : item.itemName) : item.itemNickName}</span>
+                                    <span class="item_li_t_title">${item.itemNickName == null ? (item.itemName == null ? "" : item.itemName) : item.itemNickName}</span>
                                     <span class="item_li_t_price">￦${item.itemPrice.toLocaleString("ko")}</span>
                                 </div>
                             </li>`;
-            $(".item_ul").append(li);
+                $(".item_ul").append(li);
+                item_check++;
+            }
         });
+        if (item_check == 0){
+            $(".item_ul").html(`<li id="item_none">등록한 상품이 없습니다. <br> 아래 + 버튼을 눌러 상품을 등록해보세요! </li>`);
+        }
     }
     function createDate(dt, mark){
         let year = dt.getFullYear();
@@ -261,7 +278,7 @@ $(document).ready(function(){
     // /////////////////////////////////////////////
 // 상품 상세 보기
 // /////////////////////////////////////////////
-    $(document).on('click', '.item_ul > li', function(){
+    $(document).on('click', '.item_ul > li:not(#item_none)', function(){
         let itemNo = $(this).data("itemNo");
         // if (userNo == ""){
         //     Swal.fire({

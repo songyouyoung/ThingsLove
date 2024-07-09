@@ -1,4 +1,7 @@
-main{position: relative}
+main{
+    position: relative;
+    min-height: calc(100vh - 131px);
+}
 .m_header{padding-top: 110px;}
 
 /* ///////////////////////////////// */
