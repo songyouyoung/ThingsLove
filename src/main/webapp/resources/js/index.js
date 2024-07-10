@@ -5,13 +5,16 @@ $(document).ready(function(){
 // index 초기화
 // /////////////////////////////////////////////
     let cate_check = 0;
+    let cateAllCnt = 0;
     cateList.forEach((cate) => {
         // 카테고리 리스트 출력 (카테고리 이동 셀렉트 박스)
         let move_li = `<li data-cate="${cate.cateNo}">${cate.cateName}</li>`;
         $(".m_move_ul").append(move_li);
 
         // // 카테고리 리스트 출력 (fixed menu)
-        let fixed_li = `<li data-cate="${cate.cateNo}" class="m_h_item"><span class="m_h_li_txt">${cate.cateName}</span> (<span class="m_h_li_cnt">${cate.cateCnt}</span>) <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
+        cateAllCnt += cate.cateCnt;
+        let fixed_li = `<li data-cate="${cate.cateNo}" class="m_h_item" ${cate.cateNo == cateNo ? `style="font-weight: bold;"` : ""}>
+                                    <span class="m_h_li_txt">${cate.cateName}</span> (<span class="m_h_li_cnt">${cate.cateCnt}</span>) <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
                                     <div class="m_h_li_box"></div>
                                 </li>`;
         $(".m_h_li").append(fixed_li);
@@ -19,12 +22,15 @@ $(document).ready(function(){
         // 카테고리 명 출력
         if (cate.cateNo == cateNo){
             $("#m_t_l_txt").text(cate.cateName);
+            $("#m_t_l_cnt").text(cate.cateCnt);
             cate_check++;
         }
     });
     // 카테고리 명 출력
     if (cateNo == ""){
         $("#m_t_l_txt").text("전체");
+        $("#m_t_l_cnt").text(`${cateAllCnt}`);
+        $('.m_h_item[data-cate="0"]').css({fontWeight: "bold"});
     }else if (cate_check == 0){
         Swal.fire({
             icon: "warning",
@@ -65,7 +71,11 @@ $(document).ready(function(){
 // menu - cate 선택
     $(document).on('click', '.m_h_item', function(event){
         event.stopPropagation()
-        location.replace('/'+C_PATH+'?cateNo=' + $(this).data("cate"));
+        if ($(this).data("cate") == 0){
+            location.replace('/'+C_PATH);
+        }else {
+            location.replace('/' + C_PATH + '?cateNo=' + $(this).data("cate"));
+        }
     });
 // menu - cate 추가
     $(document).on('click', '.m_h_li_add_btn', function(event){

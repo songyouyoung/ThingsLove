@@ -30,7 +30,7 @@
             <div class="m_h_btn cursor">&lt;&lt;</div>
             <ul class="m_h_li">
                 <li>카테고리 <div class="m_h_li_add_btn">+</div></li>
-                <li data-cate="all" class="m_h_item">전체
+                <li data-cate="0" class="m_h_item">전체
                     <div class="m_h_li_box"></div>
                 </li>
                 <%--<li data-cate="" class="m_h_item"><span class="m_h_li_txt">카테명_1</span> (<span class="m_h_li_cnt">개수</span>) <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
