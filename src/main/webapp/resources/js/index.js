@@ -10,6 +10,12 @@ $(document).ready(function(){
         let move_li = `<li data-cate="${cate.cateNo}">${cate.cateName}</li>`;
         $(".m_move_ul").append(move_li);
 
+        // // 카테고리 리스트 출력 (fixed menu)
+        let fixed_li = `<li data-cate="${cate.cateNo}" class="m_h_item"><span class="m_h_li_txt">${cate.cateName}</span> (<span class="m_h_li_cnt">${cate.cateCnt}</span>) <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
+                                    <div class="m_h_li_box"></div>
+                                </li>`;
+        $(".m_h_li").append(fixed_li);
+
         // 카테고리 명 출력
         if (cate.cateNo == cateNo){
             $("#m_t_l_txt").text(cate.cateName);
@@ -106,7 +112,6 @@ $(document).ready(function(){
     $(document).on('click', '.m_h_li_del_btn', function(event){
         event.stopPropagation()
         let cateCnt = $(this).parent().children(".m_h_li_cnt").text();
-        console.log("cateCnt", cateCnt);
         if (cateCnt > 0){
             Swal.fire({
                 icon: "warning",
@@ -134,7 +139,6 @@ $(document).ready(function(){
 
             let cateName = this_li_txt.text();
             let cateEdit_html = `<input type="text" class="m_h_li_edit_input" value="${cateName}" autofocus>`;
-            console.log("cateName", cateName);
             this_li_txt.css({display : "none"});
             this_li.prepend(cateEdit_html);
         }
@@ -149,12 +153,10 @@ $(document).ready(function(){
         if(event.keyCode == 13){ cate_edit(); }
     });
     function cate_edit() {
-        console.log("this", $(this));
         let this_li_txt = $(".m_h_li_edit_input").parent().children(".m_h_li_txt");
         // todo:: 중복된 카테명 없는 지 체크
 
         let cateEditName = $(".m_h_li_edit_input").val();
-        console.log("cateEditName", cateEditName);
         this_li_txt.text(cateEditName);
         $(".m_h_li_edit_input").remove();
         this_li_txt.css({display : "inline"});
@@ -245,7 +247,6 @@ $(document).ready(function(){
         $(".item_ul").html("");
         let item_check = 0;
         let today = new Date();
-        console.log(today);
         // today = createDate(today, "-");
         itemList.forEach((item)=>{
             if (cateNo == "" || item.cateNo == cateNo) {

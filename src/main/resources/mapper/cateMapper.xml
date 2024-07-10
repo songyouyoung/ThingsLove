@@ -6,7 +6,7 @@
     <!--///////////////// 카테고리 리스트 조회 /////////////////-->
     <!--/////////////////////////////////////////////////////-->
     <select id="selectCateList" parameterType="int" resultType="cateDto">
-        select cateNo, cateName from cate
+        select cateNo, cateName, cateCnt from cate
             where userNo = #{userNo}
     </select>
 </mapper>

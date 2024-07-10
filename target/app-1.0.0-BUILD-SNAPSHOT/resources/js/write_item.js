@@ -43,7 +43,6 @@ $(document).ready(function(){
             imagePreview.css({ backgroundImage: "url("+ e.target.result +")" });
         };
         reader.readAsDataURL(file);
-        console.log("file1 : ", file);
     }
 
 // /////////////////////////////////////////////

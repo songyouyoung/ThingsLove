@@ -10,6 +10,7 @@ public class CateDto {
     private String cateName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date cateRegDate;
+    private Integer cateCnt;
 
     public Integer getCateNo() {
         return cateNo;
@@ -43,6 +44,14 @@ public class CateDto {
         this.cateRegDate = cateRegDate;
     }
 
+    public Integer getCateCnt() {
+        return cateCnt;
+    }
+
+    public void setCateCnt(Integer cateCnt) {
+        this.cateCnt = cateCnt;
+    }
+
     @Override
     public String toString() {
         return "CateDto{" +
@@ -50,6 +59,7 @@ public class CateDto {
                 ", userNo=" + userNo +
                 ", cateName='" + cateName + '\'' +
                 ", cateRegDate=" + cateRegDate +
+                ", cateCnt=" + cateCnt +
                 '}';
     }
 }
