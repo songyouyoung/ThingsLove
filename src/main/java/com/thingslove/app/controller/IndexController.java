@@ -45,8 +45,6 @@ public class IndexController {
             List<ItemDto> itemLi = itemService.selectItemList(selecItem);
             String itemList = mapper.writeValueAsString(itemLi);
             model.addAttribute("itemList", itemList);
-            System.out.println(itemList);
-            System.out.println(cateList);
             return "index";
         }
     }

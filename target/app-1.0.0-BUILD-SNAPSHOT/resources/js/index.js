@@ -31,7 +31,6 @@ $(document).ready(function(){
         $("#m_t_l_txt").text("전체");
         $("#m_t_l_cnt").text(`${cateAllCnt}`);
         $('.m_h_item[data-cate="0"]').css({fontWeight: "bold"});
-        console.log($(".m_h_item:first-child"));
     }else if (cate_check == 0){
         Swal.fire({
             icon: "warning",
@@ -59,6 +58,16 @@ $(document).ready(function(){
             if (!$('.m_h_li_edit_input').is(event.target) && $('.m_h_li_edit_input').has(event.target).length === 0) {
                 $(".m_h_li_edit_input").remove();
                 $(".m_h_li_txt").css({display : "inline"});
+            }
+            
+            // sort_list 닫음
+            if (!$('.m_t_right').is(event.target) && $('.m_t_right').has(event.target).length === 0) {
+                $(".sort_list").addClass("none");
+            }
+
+            // 이동 닫음
+            if (!$('.m_move_box').is(event.target) && $('.m_move_box').has(event.target).length === 0) {
+                $(".m_move_ul").addClass("none");
             }
         }
     });
@@ -196,7 +205,7 @@ $(document).ready(function(){
 // check
 // /////////////////////////////////////////////
     // todo:: 상품 개수 가져와서 checks 초기화하기
-    let checks = new Array(8).fill(false);
+    let checks = new Array(cateAllCnt).fill(false);
     $(document).on('click', '.m_check_img', function(){
         let bol_check;
         $(this).toggleClass("check");
@@ -214,11 +223,42 @@ $(document).ready(function(){
     });
 
 // /////////////////////////////////////////////
+// 정렬
+// /////////////////////////////////////////////
+    // 정렬 클릭 시 정렬 리스트 보여주기
+    $(document).on('click', '.m_t_right', function(){
+        $(".sort_list").toggleClass("none");
+    });
+    // 실제 정렬
+
+// /////////////////////////////////////////////
 // 이동
 // /////////////////////////////////////////////
     // 이동 클릭 시 카테고리 리스트 보여주기
     $(document).on('click', '.m_move_box', function(){
         $(".m_move_ul").toggleClass("none");
+    });
+    // 실제 이동
+    $(document).on('click', '.m_move_ul > li', function(){
+        let moveItem = [];
+        for(let i = 0; i < cateAllCnt; i++){
+            if (checks[i]){
+                moveItem.push(itemList[i].itemNo);
+            }
+        }
+        $.ajax({
+            url: "/" + C_PATH + "/item/move?cateNo="+$(this).data("cate"),
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(moveItem),
+            success: function (data) {
+            }, error: function () {
+                Swal.fire({
+                    icon: "warning",
+                    title: "상품 이동 오류.<br> 관리자에게 문의해주세요."
+                });
+            }
+        });
     });
 
 // /////////////////////////////////////////////
@@ -288,7 +328,7 @@ $(document).ready(function(){
         return year + mark + month + mark + date;
     }
 
-    // /////////////////////////////////////////////
+// /////////////////////////////////////////////
 // 상품 상세 보기
 // /////////////////////////////////////////////
     $(document).on('click', '.item_ul > li:not(#item_none)', function(){

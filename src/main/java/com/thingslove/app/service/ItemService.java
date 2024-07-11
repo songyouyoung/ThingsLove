@@ -19,4 +19,11 @@ public class ItemService {
     public List<ItemDto> selectItemList(Map<String, Integer> selecItem) {
         return itemDao.selectItemList(selecItem);
     }
+
+///////////////////////////////////
+//////////// 카테고리 이동
+///////////////////////////////////
+    public Integer moveItem(Map<String, Object> moveItem){
+        return itemDao.moveItem(moveItem);
+    }
 }

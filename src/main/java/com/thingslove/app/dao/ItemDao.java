@@ -19,4 +19,8 @@ public class ItemDao {
     public List<ItemDto> selectItemList(Map<String, Integer> selecItem) {
         return session.selectList(namespace + "selectItemList", selecItem);
     }
+
+    public Integer moveItem(Map<String, Object> moveItem) {
+        return session.update(namespace + "moveItem", moveItem);
+    }
 }

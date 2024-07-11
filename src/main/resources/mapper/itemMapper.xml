@@ -12,4 +12,16 @@
                 AND cateNo = ${cateNo}
             </if>
     </select>
+
+    <!--/////////////////////////////////////////////////////-->
+    <!--//////////////// 아이템 > 카테고리 이동 /////////////////-->
+    <!--/////////////////////////////////////////////////////-->
+    <update id="moveItem" parameterType="hashmap">
+        update item
+            set cateNo = #{cateNo}
+            where userNo = #{userNo} AND itemNo IN
+                <foreach item="item" collection="itemList" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+    </update>
 </mapper>

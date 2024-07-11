@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CateService {
@@ -18,6 +19,4 @@ public class CateService {
     public List<CateDto> selectCateList(Integer userNo) {
         return cateDao.selectCateList(userNo);
     }
-
-
 }

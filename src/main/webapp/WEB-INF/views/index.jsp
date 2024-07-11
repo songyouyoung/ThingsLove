@@ -33,12 +33,6 @@
                 <li data-cate="0" class="m_h_item">전체
                     <div class="m_h_li_box"></div>
                 </li>
-                <%--<li data-cate="" class="m_h_item"><span class="m_h_li_txt">카테명_1</span> (<span class="m_h_li_cnt">개수</span>) <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
-                    <div class="m_h_li_box"></div>
-                </li>
-                <li data-cate="" class="m_h_item"><span class="m_h_li_txt">카테명_2</span> (<span class="m_h_li_cnt">개수</span>) <div class="m_h_li_btn m_h_li_del_btn"></div> <div class="m_h_li_btn m_h_li_edit_btn"></div>
-                    <div class="m_h_li_box"></div>
-                </li>--%>
             </ul>
         </div>
     </div>
@@ -66,96 +60,7 @@
                 <ul class="m_move_ul none"></ul>
             </div>
         </div>
-        <ul class="item_ul">
-            <%--<li>
-                <div class="item_li">
-                    <div class="m_check m_check_img"></div>
-                    <div class="item_li_img"></div>
-                    <div class="item_li_regDate">♥ + <span>n</span></div>
-                    <div class="item_li_title">
-                        <span class="item_li_t_title">이름</span>
-                        <span class="item_li_t_price">￦</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item_li">
-                    <div class="m_check m_check_img"></div>
-                    <div class="item_li_img"></div>
-                    <div class="item_li_regDate">♥ + <span>n</span></div>
-                    <div class="item_li_title">
-                        <span class="item_li_t_title">이름</span>
-                        <span class="item_li_t_price">￦</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item_li">
-                    <div class="m_check m_check_img"></div>
-                    <div class="item_li_img"></div>
-                    <div class="item_li_regDate">♥ + <span>n</span></div>
-                    <div class="item_li_title">
-                        <span class="item_li_t_title">이름</span>
-                        <span class="item_li_t_price">￦</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item_li">
-                    <div class="m_check m_check_img"></div>
-                    <div class="item_li_img"></div>
-                    <div class="item_li_regDate">♥ + <span>n</span></div>
-                    <div class="item_li_title">
-                        <span class="item_li_t_title">이름</span>
-                        <span class="item_li_t_price">￦</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item_li">
-                    <div class="m_check m_check_img"></div>
-                    <div class="item_li_img"></div>
-                    <div class="item_li_regDate">♥ + <span>n</span></div>
-                    <div class="item_li_title">
-                        <span class="item_li_t_title">이름</span>
-                        <span class="item_li_t_price">￦</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item_li">
-                    <div class="m_check m_check_img"></div>
-                    <div class="item_li_img"></div>
-                    <div class="item_li_regDate">♥ + <span>n</span></div>
-                    <div class="item_li_title">
-                        <span class="item_li_t_title">이름</span>
-                        <span class="item_li_t_price">￦</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item_li">
-                    <div class="m_check m_check_img"></div>
-                    <div class="item_li_img"></div>
-                    <div class="item_li_regDate">♥ + <span>n</span></div>
-                    <div class="item_li_title">
-                        <span class="item_li_t_title">이름</span>
-                        <span class="item_li_t_price">￦</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item_li">
-                    <div class="m_check m_check_img"></div>
-                    <div class="item_li_img"></div>
-                    <div class="item_li_regDate">♥ + <span>n</span></div>
-                    <div class="item_li_title">
-                        <span class="item_li_t_title">이름</span>
-                        <span class="item_li_t_price">￦</span>
-                    </div>
-                </div>
-            </li>--%>
-        </ul>
+        <ul class="item_ul"></ul>
     </div>
     <div class="fixed_btn cursor">+</div>
 </main>
