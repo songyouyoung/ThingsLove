@@ -36,6 +36,17 @@ public class IndexController {
             ObjectMapper mapper = new ObjectMapper();
             // 카테고리 리스트 전달
             List<CateDto> cateLi = cateService.selectCateList(userNo);
+            // 카테고리 별 아이템 수량 추가
+            List<CateDto> cateCntLi = itemService.selectCateCnt(userNo);
+            for(CateDto cateCnt:cateCntLi){
+                for(CateDto cate:cateLi){
+                    cate.setCateCnt(0);
+                    if (cate.getCateNo() == cateCnt.getCateNo()){
+                        cate.setCateCnt(cateCnt.getCateCnt());
+                    }
+                }
+            }
+            System.out.println("cateLi : " + cateLi);
             String cateList = mapper.writeValueAsString(cateLi);
             model.addAttribute("cateList", cateList);
             // 상품 리스트 전달

@@ -20,6 +20,10 @@ public class ItemDao {
         return session.selectList(namespace + "selectItemList", selecItem);
     }
 
+    public List<CateDto> selectCateCnt(Integer userNo) {
+        return session.selectList(namespace + "selectCateCnt", userNo);
+    }
+
     public Integer moveItem(Map<String, Object> moveItem) {
         return session.update(namespace + "moveItem", moveItem);
     }

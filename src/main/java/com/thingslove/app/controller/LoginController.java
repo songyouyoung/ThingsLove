@@ -50,8 +50,6 @@ public class LoginController {
         session.setAttribute("userNo", user.get("userNo"));
         session.setAttribute("userLv", user.get("userLv"));
 
-        System.out.println("user : " + user);
-
         //아이디 기억하기
         Cookie cookie = new Cookie("rememberId", userDto.getUserId());
         if (login_rem != null && login_rem.equals("on")) {
