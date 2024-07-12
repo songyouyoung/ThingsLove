@@ -252,6 +252,12 @@ $(document).ready(function(){
             contentType: "application/json",
             data: JSON.stringify(moveItem),
             success: function (data) {
+                Swal.fire({
+                    icon: "success",
+                    title: "상품 이동 완료!"
+                }).then(() => {
+                    location.reload();
+                });
             }, error: function () {
                 Swal.fire({
                     icon: "warning",
@@ -331,7 +337,12 @@ $(document).ready(function(){
 // /////////////////////////////////////////////
 // 상품 상세 보기
 // /////////////////////////////////////////////
-    $(document).on('click', '.item_ul > li:not(#item_none)', function(){
+    $(document).on('click', '.item_li:not(.m_check)', function(e){
+        // m_check인 경우 제외
+        if ($(e.target).closest('.m_check').length) {
+            e.stopPropagation();
+            return;
+        }
         let itemNo = $(this).data("itemNo");
         // if (userNo == ""){
         //     Swal.fire({
