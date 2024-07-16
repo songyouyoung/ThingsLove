@@ -46,7 +46,6 @@ public class IndexController {
                     }
                 }
             }
-            System.out.println("cateLi : " + cateLi);
             String cateList = mapper.writeValueAsString(cateLi);
             model.addAttribute("cateList", cateList);
             // 상품 리스트 전달

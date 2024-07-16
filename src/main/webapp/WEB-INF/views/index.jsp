@@ -40,7 +40,9 @@
         <div class="m_title">
             <div class="m_t_left">
                 <div><span id="m_t_l_txt"></span> (<span id="m_t_l_cnt">개수</span>) </div>
-                <div class="won_btn cursor">￦</div>
+                <div class="won_btn cursor">￦
+                    <div class="won_btn_txt">￦0</div>
+                </div>
             </div>
             <div class="m_t_right cursor">
                 <span>최신순</span>

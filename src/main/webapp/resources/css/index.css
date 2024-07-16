@@ -137,8 +137,7 @@ m_h_li_edit_input{
     line-height: 30px;
     position: relative;
 }
-.won_btn::after{
-    content: "￦000";
+.won_btn_txt{
     position: absolute;
     top: calc(100% + 5px);
     left: 5px;
@@ -152,7 +151,7 @@ m_h_li_edit_input{
     z-index: 15;
     display: none;
 }
-.won_btn:hover::after{
+.won_btn:hover .won_btn_txt{
     display: block;
 }
 .m_t_right, .sort_list > li{ padding: 5px 10px; }

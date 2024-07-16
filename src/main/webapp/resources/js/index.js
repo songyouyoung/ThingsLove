@@ -298,6 +298,7 @@ $(document).ready(function(){
 // /////////////////////////////////////////////
 // 상품 리스트 출력
 // /////////////////////////////////////////////
+    let item_price_all = 0;
     if (itemList == null){
         $(".item_ul").html(`<li id="item_none">등록한 상품이 없습니다. <br> 아래 + 버튼을 눌러 상품을 등록해보세요! </li>`);
     }else{
@@ -320,12 +321,16 @@ $(document).ready(function(){
                             </li>`;
                 $(".item_ul").append(li);
                 item_check++;
+                item_price_all += item.itemPrice;
             }
         });
         if (item_check == 0){
             $(".item_ul").html(`<li id="item_none">등록한 상품이 없습니다. <br> 아래 + 버튼을 눌러 상품을 등록해보세요! </li>`);
         }
     }
+    // 현재 카테고리 상품 총 금액 출력
+    $(".won_btn_txt").html("￦" + item_price_all.toLocaleString("ko"));
+
     function createDate(dt, mark){
         let year = dt.getFullYear();
         let month = dt.getMonth()+1 < 10 ? "0" + (dt.getMonth()+1) : dt.getMonth()+1;
