@@ -92,7 +92,7 @@ $(document).ready(function(){
         event.stopPropagation()
         // add input이 이미 있는 경우 생성 안함.
         if($(".m_h_li_add").length > 0){return;}
-        let m_h_li_add_html = `<li class="m_h_li_add"><input type="text" class="m_h_li_add_input" autofocus><button class="m_h_li_add_sub">생성</button></li>`;
+        let m_h_li_add_html = `<li class="m_h_li_add"><input type="text" class="m_h_li_add_input" autofocus><button class="m_h_li_add_sub cursor">생성</button></li>`;
         $('.m_h_li li').eq(0).after(m_h_li_add_html);
     });
 // menu - cate 실제 추가 (카테고리 생성 버튼 클릭)
@@ -271,14 +271,19 @@ $(document).ready(function(){
 // 상품 추가
 // /////////////////////////////////////////////
     $(document).on('click', '.fixed_btn', function(){
-        // if (userNo == ""){
-        //     Swal.fire({
-        //         icon: "warning",
-        //         title: "로그인이 필요한 서비스입니다. "
-        //     }).then(()=>{
-        //         location.href = "/" + C_PATH + "/login/login?prevPage="+location.pathname;
-        //     });
-        // }else {
+        // 카테고리가 하나도 없을 시 카테고리 생성 할 수 있는 페이지로 넘어감
+        if (cateList.length == 0){
+            Swal.fire({
+                icon: "warning",
+                title: "상품을 추가할 수 있는<br>카테고리가 없습니다.",
+                showCancelButton: true,
+                confirmButtonText: "카테고리 생성",
+                cancelButtonText: "취소"
+            }).then(() => {
+                $('.m_h_btn').trigger('click')
+                $('.m_h_li_add_btn').trigger('click')
+            });
+        }else {
             $.ajax({
                 url: "/" + C_PATH + "/item/item",
                 type: "GET",
@@ -292,7 +297,7 @@ $(document).ready(function(){
                     });
                 }
             });
-        // }
+        }
     });
 
 // /////////////////////////////////////////////

@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="write_item">
-    <form action="" method="POST" enctype="multipart/form-data" id="write">
+    <form action="<c:url value='/item/add'/>" method="POST" enctype="multipart/form-data" id="write">
         <div class="w_btn_box">
             <button type="submit" id="w_btn_edit" class="w_btn cursor">수정</button>
             <button type="submit" id="w_btn_save" class="w_btn cursor">저장</button>
