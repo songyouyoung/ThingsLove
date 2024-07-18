@@ -21,13 +21,13 @@
         </div>
         <div class="w_main">
             <div class="w_file_box cursor w_m_file_box">
-                <input type="file" name="w_m_file_input" class="w_file_input" accept="image/*" style="display: none;">
+                <input type="file" name="imgItem" class="w_file_input" accept="image/*" style="display: none;">
                 <div class="w_file_upload w_m_file_upload">+</div>
                 <div class="w_file_close w_m_file_close none">X</div>
             </div>
             <ul class="w_input_box">
-                <li class="w_i_li w_i_flex"><span class="w_i_txt">카테고리: </span><select name="itemCate" id="itemCate"></select></li>
-                <li class="w_i_li"><input type="text" name="itemName" id="itemName" class="w_input" placeholder="별명" autofocus required></li>
+                <li class="w_i_li w_i_flex"><span class="w_i_txt">카테고리: </span><select name="cateNo" id="itemCate"></select></li>
+                <li class="w_i_li"><input type="text" name="itemName" id="itemName" class="w_input" placeholder="이름" autofocus required></li>
                 <li class="w_i_li"><input type="text" name="itemWhere" id="itemWhere" class="w_input" placeholder="구매처"></li>
                 <li class="w_i_li">
                     <div class="itemPrice_txt">￦</div>
@@ -37,15 +37,15 @@
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     String today = sdf.format(new Date());
                 %>
-                <li class="w_i_li w_i_flex"><span class="w_i_txt">구매일자: </span><input type="date" name="itemDate" id="itemDate" class="w_input" max="<%= today %>">
+                <li class="w_i_li w_i_flex"><span class="w_i_txt">구매일자: </span><input type="date" name="itemBuyDate" id="itemDate" class="w_input" max="<%= today %>">
                 <li class="w_i_li"><span class="w_i_txt">사랑에 빠진 이유: </span>
-                    <textarea name="itemTxt" id="itemTxt"></textarea>
+                    <textarea name="itemDesc" id="itemTxt"></textarea>
                 </li>
                 <li class="w_i_li w_i_flex">
                     <div class="item_receipt">
                         <span class="w_i_txt">영수증</span>
                         <div class="w_file_box cursor w_i_r_file_box">
-                            <input type="file" name="w_i_r_file_input" class="w_file_input" accept="image/*" style="display: none;">
+                            <input type="file" name="imgItemRec" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_r_file_upload">+</div>
                             <div class="w_file_close w_i_r_file_close none">X</div>
                         </div>
@@ -53,7 +53,7 @@
                     <div class="item_guarantee">
                         <span class="w_i_txt">품질보증서</span>
                         <div class="w_file_box cursor w_i_file_box">
-                            <input type="file" name="w_i_g_file_input" class="w_file_input" accept="image/*" style="display: none;">
+                            <input type="file" name="imgItemGuar" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_g_file_upload">+</div>
                             <div class="w_file_close w_i_g_file_close none">X</div>
                         </div>

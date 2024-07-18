@@ -21,7 +21,7 @@
         </div>
         <div class="w_main">
             <div class="w_file_box cursor w_m_file_box">
-                <input type="file" name="itemImg" class="w_file_input" accept="image/*" style="display: none;">
+                <input type="file" name="imgItem" class="w_file_input" accept="image/*" style="display: none;">
                 <div class="w_file_upload w_m_file_upload">+</div>
                 <div class="w_file_close w_m_file_close none">X</div>
             </div>
@@ -45,7 +45,7 @@
                     <div class="item_receipt">
                         <span class="w_i_txt">영수증</span>
                         <div class="w_file_box cursor w_i_r_file_box">
-                            <input type="file" name="itemImgRec" class="w_file_input" accept="image/*" style="display: none;">
+                            <input type="file" name="imgItemRec" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_r_file_upload">+</div>
                             <div class="w_file_close w_i_r_file_close none">X</div>
                         </div>
@@ -53,7 +53,7 @@
                     <div class="item_guarantee">
                         <span class="w_i_txt">품질보증서</span>
                         <div class="w_file_box cursor w_i_file_box">
-                            <input type="file" name="itemImgGuar" class="w_file_input" accept="image/*" style="display: none;">
+                            <input type="file" name="imgItemGuar" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_g_file_upload">+</div>
                             <div class="w_file_close w_i_g_file_close none">X</div>
                         </div>

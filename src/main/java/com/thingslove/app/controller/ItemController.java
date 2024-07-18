@@ -9,11 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -26,17 +29,38 @@ public class ItemController {
     @GetMapping("/item")
     public String showItemAdd(){ return "write_item"; }
 
+    String F_PATH = "C:/Users/user/Desktop/portfolio/github/ThingsLove/src/main/webapp/resources/img/things/";
     // 상품 추가
     @PostMapping("/add")
-    public String addItem(HttpSession session, HttpServletRequest request, ItemDto itemDto){
+    public String addItem(@RequestParam(value="imgItem", required = false) MultipartFile imgItem,
+                            @RequestParam(value="imgItemRec", required = false) MultipartFile imgItemRec,
+                            @RequestParam(value="imgItemGuar", required = false) MultipartFile imgItemGuar,
+                            HttpSession session, HttpServletRequest request, ItemDto itemDto){
         Integer userNo = (Integer) session.getAttribute("userNo");
+        itemDto.setUserNo(userNo);
+        itemDto.setItemImg(uploadFile(imgItem));
+        itemDto.setItemImgRec(uploadFile(imgItemRec));
+        itemDto.setItemImgGuar(uploadFile(imgItemGuar));
+        System.out.println("itemDto : " + itemDto);
         String prevPage = "";
         String prevPageTmp = request.getHeader("REFERER");
         if(!prevPageTmp.contains("login") || prevPage.isEmpty()){ prevPage = prevPageTmp; }
         if (prevPage.isEmpty() || prevPage.contains("login")){ prevPage = "http://localhost:8080/app/"; }
         System.out.println("prevPage : " + prevPage);
-        System.out.println("itemDto : " + itemDto);
         return "index";
+    }
+    public String uploadFile(MultipartFile file){
+        if (file == null){ return ""; }
+        String fileName = file.getOriginalFilename();
+        System.out.println("fileName : " + fileName);
+        String safeFileName = System.currentTimeMillis() + fileName;
+        String safeFile = F_PATH + safeFileName;
+        try {
+            file.transferTo(new File(safeFile));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return safeFileName;
     }
 
     // 상품 카테고리 변경
