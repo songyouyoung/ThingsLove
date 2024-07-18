@@ -26,6 +26,7 @@
                 <div class="w_file_close w_m_file_close none">X</div>
             </div>
             <ul class="w_input_box">
+                <li class="w_i_li w_i_flex"><span class="w_i_txt">카테고리: </span><select name="itemCate" id="itemCate"></select></li>
                 <li class="w_i_li"><input type="text" name="itemName" id="itemName" class="w_input" placeholder="별명" autofocus required></li>
                 <li class="w_i_li"><input type="text" name="itemWhere" id="itemWhere" class="w_input" placeholder="구매처"></li>
                 <li class="w_i_li">

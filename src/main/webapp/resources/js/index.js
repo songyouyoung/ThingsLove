@@ -290,6 +290,12 @@ $(document).ready(function(){
                 success: function (data) {
                     $("main").append(data);
                     $("#w_btn_edit").remove();
+
+                    cateList.forEach((cate) => {
+                        let cate_li = `<option value="${cate.cateNo}">${cate.cateName}</option>`;
+                        $("#itemCate").append(cate_li);
+                    });
+
                 }, error: function () {
                     Swal.fire({
                         icon: "warning",

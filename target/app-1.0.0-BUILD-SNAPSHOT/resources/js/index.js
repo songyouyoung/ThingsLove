@@ -271,6 +271,7 @@ $(document).ready(function(){
 // 상품 추가
 // /////////////////////////////////////////////
     $(document).on('click', '.fixed_btn', function(){
+        // 카테고리가 하나도 없을 시 카테고리 생성 할 수 있는 페이지로 넘어감
         if (cateList.length == 0){
             Swal.fire({
                 icon: "warning",
@@ -289,6 +290,12 @@ $(document).ready(function(){
                 success: function (data) {
                     $("main").append(data);
                     $("#w_btn_edit").remove();
+
+                    cateList.forEach((cate) => {
+                        let cate_li = `<option value="${cate.cateNo}">${cate.cateName}</option>`;
+                        $("#itemCate").append(cate_li);
+                    });
+
                 }, error: function () {
                     Swal.fire({
                         icon: "warning",
