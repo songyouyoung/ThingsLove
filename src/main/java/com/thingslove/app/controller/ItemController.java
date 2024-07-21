@@ -35,7 +35,9 @@ public class ItemController {
     public String addItem(@RequestParam(value="imgItem", required = false) MultipartFile imgItem,
                             @RequestParam(value="imgItemRec", required = false) MultipartFile imgItemRec,
                             @RequestParam(value="imgItemGuar", required = false) MultipartFile imgItemGuar,
-                            HttpSession session, HttpServletRequest request, ItemDto itemDto){
+                            HttpSession session, HttpServletRequest request, ItemDto itemDto, String priceItem){
+        Integer itemPrice = Integer.parseInt(priceItem.replace(",", ""));
+        itemDto.setItemPrice(itemPrice);
         Integer userNo = (Integer) session.getAttribute("userNo");
         itemDto.setUserNo(userNo);
         itemDto.setItemImg(uploadFile(imgItem));
@@ -52,7 +54,7 @@ public class ItemController {
     public String uploadFile(MultipartFile file){
         if (file == null){ return ""; }
         String fileName = file.getOriginalFilename();
-        System.out.println("fileName : " + fileName);
+        if (fileName.equals("")){ return ""; }
         String safeFileName = System.currentTimeMillis() + fileName;
         String safeFile = F_PATH + safeFileName;
         try {

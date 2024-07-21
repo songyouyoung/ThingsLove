@@ -31,7 +31,7 @@
                 <li class="w_i_li"><input type="text" name="itemWhere" id="itemWhere" class="w_input" placeholder="구매처"></li>
                 <li class="w_i_li">
                     <div class="itemPrice_txt">￦</div>
-                    <input type="text" name="itemPrice" id="itemPrice" class="w_input" placeholder="구매가" min="0">
+                    <input type="text" name="priceItem" id="itemPrice" class="w_input" placeholder="구매가" min="0">
                 </li>
                 <%
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
