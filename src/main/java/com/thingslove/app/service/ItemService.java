@@ -34,4 +34,11 @@ public class ItemService {
     public Integer moveItem(Map<String, Object> moveItem){
         return itemDao.moveItem(moveItem);
     }
+
+///////////////////////////////////
+//////////// 아이템 추가
+///////////////////////////////////
+    public Integer insertItem(ItemDto itemDto) {
+        return itemDao.insertItem(itemDto);
+    }
 }

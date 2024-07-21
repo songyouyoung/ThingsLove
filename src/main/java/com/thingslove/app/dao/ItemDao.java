@@ -27,4 +27,8 @@ public class ItemDao {
     public Integer moveItem(Map<String, Object> moveItem) {
         return session.update(namespace + "moveItem", moveItem);
     }
+
+    public Integer insertItem(ItemDto itemDto) {
+        return session.insert(namespace + "insertItem", itemDto);
+    }
 }

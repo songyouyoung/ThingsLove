@@ -36,20 +36,24 @@ public class ItemController {
                             @RequestParam(value="imgItemRec", required = false) MultipartFile imgItemRec,
                             @RequestParam(value="imgItemGuar", required = false) MultipartFile imgItemGuar,
                             HttpSession session, HttpServletRequest request, ItemDto itemDto, String priceItem){
-        Integer itemPrice = Integer.parseInt(priceItem.replace(",", ""));
+        // 추가할 상품 내용 정리
+        String itemPriceString = priceItem.replace(",", "");
+        Integer itemPrice = Integer.parseInt(itemPriceString.isEmpty() ? "0" : itemPriceString);
         itemDto.setItemPrice(itemPrice);
         Integer userNo = (Integer) session.getAttribute("userNo");
         itemDto.setUserNo(userNo);
         itemDto.setItemImg(uploadFile(imgItem));
         itemDto.setItemImgRec(uploadFile(imgItemRec));
         itemDto.setItemImgGuar(uploadFile(imgItemGuar));
-        System.out.println("itemDto : " + itemDto);
+        // 실제 상품 DB 추가
+        Integer inserResult = itemService.insertItem(itemDto);
+
         String prevPage = "";
         String prevPageTmp = request.getHeader("REFERER");
         if(!prevPageTmp.contains("login") || prevPage.isEmpty()){ prevPage = prevPageTmp; }
         if (prevPage.isEmpty() || prevPage.contains("login")){ prevPage = "http://localhost:8080/app/"; }
         System.out.println("prevPage : " + prevPage);
-        return "index";
+        return "redirect:/";
     }
     public String uploadFile(MultipartFile file){
         if (file == null){ return ""; }
