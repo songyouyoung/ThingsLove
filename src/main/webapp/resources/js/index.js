@@ -321,7 +321,7 @@ $(document).ready(function(){
             if (cateNo == "" || item.cateNo == cateNo) {
                 let date = item.itemBuyDate == null ? Math.floor((today.getTime() - item.itemRegDate) / (1000 * 3600 * 24))
                     : Math.floor((today.getTime() - item.itemBuyDate) / (1000 * 3600 * 24));
-                let li = `<li class="item_li" data-itemNo = "${item.itemNo}">
+                let li = `<li class="item_li" data-itemno = "${item.itemNo}">
                                 <div class="m_check m_check_img"></div>
                                 <div class="item_li_img"><img src="/${C_PATH}/img/things/${item.itemImg == "" ? "logo_bg.jpg" : item.itemImg}"></div>
                                 <div class="item_li_regDate">♥ + <span>${date}</span></div>
@@ -353,29 +353,51 @@ $(document).ready(function(){
 // /////////////////////////////////////////////
 // 상품 상세 보기
 // /////////////////////////////////////////////
-    $(document).on('click', '.item_li:not(.m_check)', function(e){
+    $(document).on('click', '.item_li', function(e){
         // m_check인 경우 제외
         if ($(e.target).closest('.m_check').length) {
             e.stopPropagation();
             return;
         }
-        let itemNo = $(this).data("itemNo");
-        // if (userNo == ""){
-        //     Swal.fire({
-        //         icon: "warning",
-        //         title: "로그인이 필요한 서비스입니다. "
-        //     }).then(()=>{
-        //         location.href = "/" + C_PATH + "/login/login?prevPage="+location.pathname;
-        //     });
-        // }else {
+        let itemNo = $(this).data("itemno");
+        let cateName;
         $.ajax({
             url: "/" + C_PATH + "/item/item",
             type: "GET",
             success: function (data) {
-                /////////////////////////////////
-                // 추후 상품 리스트로 받아서 여기서 강제로 데이터 입력해서 출력할 것.
-                /////////////////////////////////
                 $("main").append(data);
+                // 모든 input에 disable 속성 추가
+                const inputs = document.querySelectorAll('.write_item input');
+                inputs.forEach(input => {
+                    input.disabled = true;
+                });
+                $("#itemCate").prop("disabled", true);
+                $("#itemTxt").prop("disabled", true);
+                // 각 input에 값 넣기
+                let item;
+                itemList.forEach((items) => {
+                    if(items.itemNo == itemNo){
+                        item = items;
+                    }
+                })
+                cateList.forEach((cates) => {
+                    if (cates.cateNo == item.cateNo){
+                        cateName = cates.cateName;
+                    }
+                });
+                // todo:: 대표이미지
+                $("#itemCate").append(`<option value="${item.cateNo}">${cateName}</option>>`);
+                $("#itemName").val(item.itemName);
+                $("#itemWhere").val(item.itemWhere);
+                $("#itemPrice").val(item.itemPrice.toLocaleString("ko"));
+                let itemBuyDate = new Date(item.itemBuyDate);
+                var year = itemBuyDate.getFullYear();
+                var month = ("0" + (itemBuyDate.getMonth() + 1)).slice(-2);
+                var day = ("0" + itemBuyDate.getDate()).slice(-2);
+                var formDate = `${year}-${month}-${day}`;
+                $("#itemDate").val(formDate);
+                $("#itemTxt").val(item.itemDesc);
+                $(".w_file_box .w_file_upload").addClass("none");
             }, error: function () {
                 Swal.fire({
                     icon: "warning",
@@ -383,6 +405,5 @@ $(document).ready(function(){
                 });
             }
         });
-        // }
     });
 });
