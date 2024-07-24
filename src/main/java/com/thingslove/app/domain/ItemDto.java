@@ -9,7 +9,6 @@ public class ItemDto {
     private Integer userNo;
     private Integer cateNo;
     private String itemName;
-    private String itemNickName;
     private String itemWhere;
     private Integer itemPrice;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -51,14 +50,6 @@ public class ItemDto {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
-    }
-
-    public String getItemNickName() {
-        return itemNickName;
-    }
-
-    public void setItemNickName(String itemNickName) {
-        this.itemNickName = itemNickName;
     }
 
     public String getItemWhere() {
@@ -132,7 +123,6 @@ public class ItemDto {
                 ", userNo=" + userNo +
                 ", cateNo=" + cateNo +
                 ", itemName='" + itemName + '\'' +
-                ", itemNickName='" + itemNickName + '\'' +
                 ", itemWhere='" + itemWhere + '\'' +
                 ", itemPrice=" + itemPrice +
                 ", itemBuyDate=" + itemBuyDate +

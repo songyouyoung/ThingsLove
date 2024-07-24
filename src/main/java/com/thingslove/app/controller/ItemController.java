@@ -45,6 +45,7 @@ public class ItemController {
         itemDto.setItemImg(uploadFile(imgItem));
         itemDto.setItemImgRec(uploadFile(imgItemRec));
         itemDto.setItemImgGuar(uploadFile(imgItemGuar));
+        System.out.println("itemDto : " + itemDto);
         // 실제 상품 DB 추가
         Integer inserResult = itemService.insertItem(itemDto);
 

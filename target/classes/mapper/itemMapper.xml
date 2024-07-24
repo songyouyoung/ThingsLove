@@ -38,6 +38,6 @@
     <!--/////////////////////////////////////////////////////-->
     <insert id="insertItem" parameterType="itemDto">
         insert into item (userNo, cateNo, itemName, itemWhere, itemPrice, itemBuyDate, itemDesc, itemImg, itemImgRec, itemImgGuar)
-                values(${userNo}, ${cateNo}, ${itemName}, ${itemWhere}, ${itemPrice}, ${itemBuyDate}, ${itemDesc}, ${itemImg}, ${itemImgRec}, ${itemImgGuar});
+                values(#{userNo}, #{cateNo}, #{itemName}, #{itemWhere}, #{itemPrice}, #{itemBuyDate}, #{itemDesc}, #{itemImg}, #{itemImgRec}, #{itemImgGuar});
     </insert>
 </mapper>

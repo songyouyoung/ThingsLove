@@ -323,10 +323,10 @@ $(document).ready(function(){
                     : Math.floor((today.getTime() - item.itemBuyDate) / (1000 * 3600 * 24));
                 let li = `<li class="item_li" data-itemNo = "${item.itemNo}">
                                 <div class="m_check m_check_img"></div>
-                                <div class="item_li_img"><img src="/${C_PATH}/img/things/${item.itemImg}"></div>
+                                <div class="item_li_img"><img src="/${C_PATH}/img/things/${item.itemImg == "" ? "logo_bg.jpg" : item.itemImg}"></div>
                                 <div class="item_li_regDate">♥ + <span>${date}</span></div>
                                 <div class="item_li_title">
-                                    <span class="item_li_t_title">${item.itemNickName == null ? (item.itemName == null ? "" : item.itemName) : item.itemNickName}</span>
+                                    <span class="item_li_t_title">${item.itemName}</span>
                                     <span class="item_li_t_price">￦${item.itemPrice.toLocaleString("ko")}</span>
                                 </div>
                             </li>`;
