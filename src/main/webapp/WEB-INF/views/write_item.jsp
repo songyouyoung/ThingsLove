@@ -15,12 +15,13 @@
 <div class="write_item">
     <form action="<c:url value='/item/add'/>" method="POST" enctype="multipart/form-data" id="write">
         <div class="w_btn_box">
-            <button type="submit" id="w_btn_edit" class="w_btn cursor">수정</button>
+            <%--<button type="submit" id="w_btn_del" class="w_btn cursor">삭제</button>--%>
+            <%--<button type="submit" id="w_btn_edit" class="w_btn cursor">수정</button>--%>
             <button type="submit" id="w_btn_save" class="w_btn cursor">저장</button>
             <div class="w_btn_close cursor">X</div>
         </div>
         <div class="w_main">
-            <div class="w_file_box cursor w_m_file_box">
+            <div class="w_file_box cursor" id="itemImg">
                 <input type="file" name="imgItem" class="w_file_input" accept="image/*" style="display: none;">
                 <div class="w_file_upload w_m_file_upload">+</div>
                 <div class="w_file_close w_m_file_close none">X</div>
@@ -44,7 +45,7 @@
                 <li class="w_i_li w_i_flex">
                     <div class="item_receipt">
                         <span class="w_i_txt">영수증</span>
-                        <div class="w_file_box cursor w_i_r_file_box">
+                        <div class="w_file_box cursor" id="itemImgRec">
                             <input type="file" name="imgItemRec" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_r_file_upload">+</div>
                             <div class="w_file_close w_i_r_file_close none">X</div>
@@ -52,7 +53,7 @@
                     </div>
                     <div class="item_guarantee">
                         <span class="w_i_txt">품질보증서</span>
-                        <div class="w_file_box cursor w_i_file_box">
+                        <div class="w_file_box cursor" id="itemImgGuar">
                             <input type="file" name="imgItemGuar" class="w_file_input" accept="image/*" style="display: none;">
                             <div class="w_file_upload w_i_g_file_upload">+</div>
                             <div class="w_file_close w_i_g_file_close none">X</div>

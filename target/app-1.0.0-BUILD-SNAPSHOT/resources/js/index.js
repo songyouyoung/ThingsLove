@@ -289,8 +289,6 @@ $(document).ready(function(){
                 type: "GET",
                 success: function (data) {
                     $("main").append(data);
-                    $("#w_btn_edit").remove();
-
                     cateList.forEach((cate) => {
                         let cate_li = `<option value="${cate.cateNo}">${cate.cateName}</option>`;
                         $("#itemCate").append(cate_li);
@@ -353,6 +351,7 @@ $(document).ready(function(){
 // /////////////////////////////////////////////
 // 상품 상세 보기
 // /////////////////////////////////////////////
+    let writeHTML;
     $(document).on('click', '.item_li', function(e){
         // m_check인 경우 제외
         if ($(e.target).closest('.m_check').length) {
@@ -365,7 +364,8 @@ $(document).ready(function(){
             url: "/" + C_PATH + "/item/item",
             type: "GET",
             success: function (data) {
-                $("main").append(data);
+                writeHTML = $('<div>').html(data);
+                $("main").append(writeHTML);
                 // 모든 input에 disable 속성 추가
                 const inputs = document.querySelectorAll('.write_item input');
                 inputs.forEach(input => {
@@ -385,7 +385,6 @@ $(document).ready(function(){
                         cateName = cates.cateName;
                     }
                 });
-                // todo:: 대표이미지
                 $("#itemCate").append(`<option value="${item.cateNo}">${cateName}</option>>`);
                 $("#itemName").val(item.itemName);
                 $("#itemWhere").val(item.itemWhere);
@@ -397,10 +396,19 @@ $(document).ready(function(){
                 var formDate = `${year}-${month}-${day}`;
                 $("#itemDate").val(formDate);
                 $("#itemTxt").val(item.itemDesc);
+                $(".w_file_box").removeClass("cursor");
                 $(".w_file_box .w_file_upload").addClass("none");
-                console.log("item", item);
-                if (item.itemImg == ""){}
-                //$(".w_file_box .w_file_close").removeClass("none");
+                (item.itemImg == "" || item.itemImg == null) ? "" : $("#itemImg").css({ backgroundImage: "url(./img/things/"+ item.itemImg +")" });
+                (item.itemImgRec == "" || item.itemImgRec == null) ? "" : $("#itemImgRec").css({ backgroundImage: "url(./img/things/"+ item.itemImgRec +")" });
+                (item.itemImgGuar == "" || item.itemImgGuar == null) ? "" : $("#itemImgGuar").css({ backgroundImage: "url(./img/things/"+ item.itemImgGuar +")" });
+                // form action 수정
+                $("#write").prop("action", "/" + C_PATH + "/item/del");
+                // 버튼 생성 및 제거
+                let delBtn = `<button type="submit" id="w_btn_del" class="w_btn cursor">삭제</button>`;
+                let editBtn = `<button type="button" id="w_btn_edit" class="w_btn cursor">수정</button>`;
+                $("#w_btn_save").remove();
+                $(".w_btn_box").prepend(editBtn);
+                $(".w_btn_box").prepend(delBtn);
             }, error: function () {
                 Swal.fire({
                     icon: "warning",
@@ -409,4 +417,26 @@ $(document).ready(function(){
             }
         });
     });
+// /////////////////////////////////////////////
+// 상품 상세보기 닫기
+// /////////////////////////////////////////////
+    $(document).on('click', '.w_btn_close', function(){
+        console.log("눌림");
+        console.log("writeHTML", writeHTML);
+        writeHTML.remove();
+    });
+});
+
+// /////////////////////////////////////////////
+// 수정 클릭 시 수정으로 변경
+// /////////////////////////////////////////////
+$(document).on("click", "#w_btn_edit", function(event) {
+// $('#w_btn_edit').one('click', function() {
+    // event.stopPropagation();
+    console.log("울랄");
+    $("#write").prop("action", "/" + C_PATH + "/item/edit");
+    $("#w_btn_del").remove();
+    $("#w_btn_edit").remove();
+    let saveBtn = `<button type="submit" id="w_btn_save" class="w_btn cursor">저장</button>`;
+    $(".w_btn_box").prepend(saveBtn);
 });

@@ -79,7 +79,7 @@
 }
 
 /* 대표 사진 */
-.w_m_file_box{ margin: 0 auto; }
+#itemImg{ margin: 0 auto; }
 
 /* input 박스 */
 .w_input_box, .w_i_li{padding-top: 10px;}

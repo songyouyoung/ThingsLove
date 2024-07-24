@@ -1,12 +1,5 @@
 $(document).ready(function(){
 // /////////////////////////////////////////////
-// 닫기
-// /////////////////////////////////////////////
-    $(document).on('click', '.w_btn_close', function(){
-        (document.getElementsByClassName("write_item")[0]).remove();
-    });
-
-// /////////////////////////////////////////////
 // 사진 클릭 시 이미지 미리보기
 // /////////////////////////////////////////////
     $(document).on("click", ".w_file_box", function(event) {
